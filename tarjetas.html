@@ -1,238 +1,191 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Personajes de Series</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("aurora.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center; 
+        }
 
-<title>Galería de Personajes</title>
+        :root {
+            --color-de-lertras: #ffffff; 
+            --color-barra: #000000d6;      
+        }
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        /* Ajustes para el menú adaptado a tu estilo */
+        .navbar-custom {
+            background-color: var(--color-barra) !important;
+        }
+        .navbar-custom .navbar-brand, 
+        .navbar-custom .nav-link {
+            color: var(--color-de-lertras) !important;
+        }
+        .dropdown-menu {
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 1px solid #b6097f;
+        }
+        .dropdown-item {
+            color: #ffffff !important;
+        }
+        .dropdown-item:hover {
+            background-color: #b6097f !important;
+            color: #fff !important;
+        }
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        h1 {
+            margin-top: 30px;
+            font-size: 40px;
+            text-shadow: 2px 2px 5px black;
+        }
+        
+        p {
+            text-shadow: 1px 1px 3px black;
+        }
 
-<style>
+        /* Estilos personalizados para las tarjetas de la galería */
+        .card-personaje {
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            border: 2px solid #b6097f !important;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s paths, box-shadow 0.3s;
+            color: white !important;
+        }
 
-body{
-    background: linear-gradient(135deg,#1e1b4b,#312e81,#7c3aed);
-    min-height:100vh;
-    color:white;
-    font-family: Arial, Helvetica, sans-serif;
-}
+        .card-personaje:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(182, 9, 127, 0.5);
+        }
 
-/* NAVBAR */
-
-.navbar{
-    background:rgba(0,0,0,.85);
-    border:none;
-    border-radius:0;
-    margin-bottom:40px;
-}
-
-.navbar-brand,
-.navbar-nav > li > a{
-    color:white !important;
-}
-
-.dropdown-menu{
-    background:#1e1b4b;
-}
-
-.dropdown-menu li a{
-    color:white !important;
-}
-
-.dropdown-menu li a:hover{
-    background:#ec4899 !important;
-    color:white !important;
-}
-
-/* TITULOS */
-
-h1{
-    font-size:50px;
-    font-weight:bold;
-    margin-top:20px;
-    text-shadow:0 0 15px rgba(255,255,255,.4);
-}
-
-.subtitulo{
-    text-align:center;
-    font-size:18px;
-    margin-bottom:30px;
-    color:#e5e7eb;
-}
-
-/* TARJETAS */
-
-.cards-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-    gap:30px;
-    padding:30px;
-}
-
-.x-card{
-    background:rgba(15,23,42,.85);
-    border-radius:25px;
-    overflow:hidden;
-    backdrop-filter:blur(15px);
-    transition:.4s;
-    box-shadow:0 0 20px rgba(0,0,0,.5);
-}
-
-.x-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 30px rgba(236,72,153,.6);
-}
-
-.card-header{
-    background:linear-gradient(90deg,#ec4899,#8b5cf6);
-    padding:18px;
-    text-align:center;
-    font-size:22px;
-    font-weight:bold;
-}
-
-.card-img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-}
-
-.card-body{
-    padding:20px;
-}
-
-.card-body p{
-    margin-bottom:10px;
-}
-
-.stat-label{
-    color:#ec4899;
-    font-weight:bold;
-}
-
-hr{
-    border-color:rgba(255,255,255,.2);
-}
-
-</style>
+        .card-personaje img {
+            height: 250px;
+            object-fit: cover; /* Evita que la imagen se deforme dentro de la tarjeta */
+            border-bottom: 2px solid #b6097f;
+        }
+    </style>
 </head>
-
 <body>
 
-<nav class="navbar navbar-inverse">
-    <div class="container">
+<div>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index1.html" style="font-family: 'Times New Roman', Times, serif">Home</a>
 
-        <a class="navbar-brand" href="index1.html">
-            Home
-        </a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Unidad 1 <span class="caret"></span>
-                    </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Unidad 1
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                            <li><a class="dropdown-item" href="mostrar.html">Mostrar Datos</a></li>
+                            <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
+                            <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
+                        </ul>
+                    </li>
 
-                    <ul class="dropdown-menu">
-                        <li><a href="meterdatos.html">Meter Datos</a></li>
-                        <li><a href="tablafinal.html">Tabla Final</a></li>
-                    </ul>
-                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Unidad 2
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                            <li><a class="dropdown-item" href="relaciones01.html">Relación 1</a></li>
+                            <li><a class="dropdown-item" href="relaciones02.html">Relación 2</a></li>
+                            <li><a class="dropdown-item" href="capturadatosrelaconados.html">Relaciones de datos</a></li>
+                            <li><a class="dropdown-item" href="xmen.html">Registrar Personajes</a></li>
+                            <li><a class="dropdown-item" href="tarjetas.html">Galeria Personajes</a></li>
+                        </ul>
+                    </li>
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Unidad 2 <span class="caret"></span>
-                    </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Unidad 3
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                            <li><a class="dropdown-item" href="peliculas.html">Películas</a></li>
+                            <li><a class="dropdown-item" href="pokedex.html">Pokedex</a></li>
+                            <li><a class="dropdown-item" href="index.html">VELVET SOUND • Music Catalog</a></li>
+                        </ul>
+                    </li>
 
-                    <ul class="dropdown-menu">
-                        <li><a href="relaciones01.html">Relación 1</a></li>
-                        <li><a href="relaciones02.html">Relación 2</a></li>
-                        <li><a href="capturadatosrelaconados.html">Relaciones de Datos</a></li>
-                        <li><a href="xmen.html">Registrar Personajes</a></li>
-                        <li><a href="tarjetas.html">Galería Personajes</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Unidad 3 <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="peliculas.html">Películas</a></li>
-                        <li><a href="pokedex.html">Pokedex</a></li>
-                        <li><a href="index.html">VELVET SOUND • Music Catalog</a></li>
-                    </ul>
-                </li>
-
-            </ul>
+                </ul>
+            </div>
         </div>
-
-    </div>
-</nav>
-
-<div class="container-fluid">
-
-    <h1 class="text-center">
-        Galería de Personajes de Series
-    </h1>
-
-    <p class="subtitulo">
-        Consulta de Registros Relacionados
-    </p>
-
-    <div class="cards-grid" id="galeria"></div>
-
+    </nav>
 </div>
+
+<div class="container mt-4">
+    <h1>Galería de Personajes de Series</h1>
+    <p>Consulta de Registros Relacionados</p>
+    
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-2" id="contenedorTarjetas">
+        </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+// Arreglo de personajes con las rutas correctas para GitHub Pages
+const personajes = [
+    {
+        id: 1,
+        nombrereal: "Tom Holland",
+        personaje: "Spider-Man",
+        poderes: "Sentido arácnido, fuerza y agilidad",
+        biografia: "Héroe adolescente de Marvel que protege Nueva York.",
+        imagen: "imagenes/spiderman.jpg"
+    },
+    {
+        id: 2,
+        nombrereal: "Robert Downey Jr.",
+        personaje: "Iron Man",
+        poderes: "Vuelo, rayos repulsores e intelecto genio",
+        biografia: "Líder de los Vengadores con armaduras de alta tecnología.",
+        imagen: "imagenes/iroman.jpg"
+    }
+];
 
-const personajes =
-JSON.parse(localStorage.getItem("personajes")) || [];
+const contenedor = document.getElementById("contenedorTarjetas");
 
-const galeria = document.getElementById("galeria");
+// Limpiamos el contenedor por seguridad
+contenedor.innerHTML = "";
 
+// Generamos las tarjetas de Bootstrap estructuradas de forma atractiva
 personajes.forEach(p => {
-
-galeria.innerHTML += `
-
-<div class="x-card">
-
-    <div class="card-header">
-        ${p.nombre_personaje}
+    contenedor.innerHTML += `
+    <div class="col">
+        <div class="card h-100 card-personaje">
+            <img src="${p.imagen}" class="card-img-top" alt="${p.personaje}">
+            <div class="card-body text-start">
+                <h5 class="card-title text-center" style="color: #b6097f; font-weight: bold;">${p.personaje}</h5>
+                <p class="card-text"><strong>Nombre Real:</strong> ${p.nombrereal}</p>
+                <p class="card-text"><strong>Poderes:</strong> ${p.poderes}</p>
+                <p class="card-text text-muted" style="font-size: 0.9rem; color: #ddd !important;">${p.biografia}</p>
+            </div>
+            <div class="card-footer text-center">
+                <small>ID del Registro: #00${p.id}</small>
+            </div>
+        </div>
     </div>
-
-    <img src="${p.foto_perfil}" class="card-img">
-
-    <div class="card-body">
-
-        <p><span class="stat-label">Actriz:</span> ${p.actriz}</p>
-
-        <p><span class="stat-label">Serie:</span> ${p.nombre_serie}</p>
-
-        <p><span class="stat-label">Habilidad:</span> ${p.habilidad_destacada}</p>
-
-        <p><span class="stat-label">Altura:</span> ${p.altura}</p>
-
-        <hr>
-
-        <p>
-            <em>${p.bio}</em>
-        </p>
-
-    </div>
-
-</div>
-
-`;
-
+    `;
 });
-
 </script>
-
 </body>
 </html>
