@@ -1,0 +1,45 @@
+<script>
+
+document.querySelector("form").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const personajesRelacionados =
+JSON.parse(localStorage.getItem("personajesRelacionados")) || [];
+
+const nuevoPersonaje = {
+
+id: Date.now(),
+
+nombre: document.querySelector('[name="nombre"]').value,
+
+alias: document.querySelector('[name="alias"]').value,
+
+fechacreacion: document.querySelector('[name="fechacreacion"]').value,
+
+descripcion: document.querySelector('[name="descripcion"]').value,
+
+comics: Array.from(
+document.querySelectorAll('[name="comics"]')
+).map(c => c.value),
+
+superpoderes: Array.from(
+document.querySelectorAll('[name="superpoderes"]')
+).map(s => s.value)
+
+};
+
+personajesRelacionados.push(nuevoPersonaje);
+
+localStorage.setItem(
+"personajesRelacionados",
+JSON.stringify(personajesRelacionados)
+);
+
+alert("Personaje guardado correctamente");
+
+window.location.href = "relaciones01.html";
+
+});
+
+</script>

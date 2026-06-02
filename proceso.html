@@ -1,0 +1,59 @@
+<?php
+require_once 'conexion.php';
+
+if(isset($_POST['nombre'])){
+    $nombre_personaje = $_POST['nombre'] ?? '';
+    $actriz = $_POST['nombrereal'] ?? '';
+    $habilidad_destacada = $_POST['poderes'] ?? '';
+    // Ajuste en la variable para que reciba el dato correcto del formulario
+    $ocupacion  = $_POST['ocupacion'] ?? ''; 
+    $altura = $_POST['altura'] ?? '';
+    $bio = $_POST['bio'] ?? '';
+    
+    //procesar la imagen
+    if(isset($_FILES['imagen']) && $_FILES['imagen']['error'] === 0){
+        $img_tmp_name = $_FILES['imagen']['tmp_name'];
+        $img_name = $_FILES['imagen']['name'];
+
+        $img_content = file_get_contents($img_tmp_name); 
+
+        $upload_dir = 'uploads/';
+        if(!is_dir($upload_dir)){
+            mkdir($upload_dir,0777,true);   
+        }
+        
+        move_uploaded_file($img_tmp_name, $upload_dir . $img_name);
+        // Volvemos a capturar el contenido por si el temporal se movió antes de la DB
+        $img_content = file_get_contents($upload_dir . $img_name);
+    } else { 
+        die("Error al subir imagen.");
+    } 
+
+    try {
+        $sql = "INSERT INTO personajes (nombre_personaje, actriz, habilidad_destacada, ocupacion, altura, bio, foto_perfil, serie_id)
+                VALUES (:nombre, :nombrereal, :poderes, :ocupacion, :altura, :bio, :imagen, :serie_id)";
+        
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->bindParam(':nombre', $nombre_personaje);
+        $stmt->bindParam(':nombrereal', $actriz);
+        $stmt->bindParam(':poderes', $habilidad_destacada);
+        $stmt->bindParam(':ocupacion', $ocupacion); 
+        $stmt->bindParam(':altura', $altura);
+        $stmt->bindParam(':bio', $bio);
+        $stmt->bindParam(':imagen', $img_content, PDO::PARAM_LOB);
+        $stmt->bindParam(':serie_id', $serie_id);
+
+        $stmt->execute();
+
+        header("Location: tarjetas.php?success=1");
+        exit();
+    } catch (PDOException $e) {
+        die("Error en la base de Datos:" . $e->getMessage());
+    }
+
+} else {
+    header("Location: xmen.php");
+    exit();
+}
+?>

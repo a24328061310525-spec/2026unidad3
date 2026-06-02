@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+<!-- Bootstrap -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<style>
+.navbar{
+    background-color:#000000d6;
+    border:none;
+    border-radius:0;
+    margin-bottom:20px;
+}
+
+.navbar-brand,
+.navbar-nav > li > a{
+    color:white !important;
+}
+
+.dropdown-menu{
+    background:#1e1b4b;
+}
+
+.dropdown-menu > li > a{
+    color:white !important;
+}
+
+.dropdown-menu > li > a:hover{
+    background:#ec4899 !important;
+    color:white !important;
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pokedex.css">
+    <title>Pokedex</title>
+</head> 
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container">
+
+        <a class="navbar-brand" href="index1.html">Home</a>
+
+        <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Unidad 1 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="mostrar.html">Mostrar Datos</a></li>
+                    <li><a href="meterdatos.html">Meter Datos</a></li>
+                    <li><a href="tablafinal.html">Tabla Final</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Unidad 2 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="relaciones01.html">Relación 1</a></li>
+                    <li><a href="relaciones02.html">Relación 2</a></li>
+                    <li><a href="relaciones_disney.html">Relaciones Disney</a></li>
+                    <li><a href="xmen.html">Registrar Personajes</a></li>
+                    <li><a href="tarjetas.html">Galería Personajes</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Unidad 3 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="peliculas.html">Películas</a></li>
+                    <li><a href="pokedex.html">Pokedex</a></li>
+                    <li><a href="index.html">VELVET SOUND • Music Catalog</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+
+    <img src="pokemonsito.jpeg" alt="Logo Pokémon" class="logo-rincon">
+
+    <h1>MAESTRO POKEMON: ALISSON SARAI SANTIAGO CRUZ</h1>
+
+    <div class="search-container">
+        <input type="text" placeholder="Pikachu" id="pokeName" name="pokeName" class="placeholder">
+        <button onclick="fetchPokemon()" class="button">Click me</button>
+    </div>
+
+    <div class="main-container">
+        
+        <div class="image-wrapper">
+            <img src="error444.avif" alt="Pokemaster" id="pokeImg" class="pokeImage">
+        </div>
+
+        <div class="info-container">
+            <div id="pokename" class="name"></div>
+            
+            <div id="pokeid" style="color: yellow; font-weight: bold;"></div>
+            <div id="pokeorder" style="color: orange; font-weight: bold;"></div>
+            
+            <div id="pokeHe" class="stat-item"></div>
+            <div id="pokeWe" class="stat-item"></div>
+            <div id="poketype" class="stat-item"></div>
+            <div id="pokeitem" class="stat-item"></div>
+            <div id="pokemove1" class="stat-item"></div>
+            <div id="pokemove2" class="stat-item"></div>
+            <div id="pokemove3" class="stat-item"></div>
+            <div id="pokemove4" class="stat-item"></div>
+        </div>
+
+    </div>
+
+    <div class="grafica">
+        <canvas id="miCanvas"></canvas>
+    </div>
+
+    <script src="pokedex.js"></script>
+    <script src="Chart.js"></script>
+</body>
+</html>

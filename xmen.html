@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<title>Registrar Personajes</title>
+
+<style>
+
+:root{
+    --color-fondo:#120d2e;
+    --color-secundario:#25164f;
+    --color-acento:#ff4fc4;
+    --color-texto:#ffffff;
+    --color-input:#1f1f3a;
+    --color-barra:#000000d6;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:linear-gradient(135deg,#120d2e,#24134a,#45195f);
+    min-height:100vh;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+}
+
+.navbar{
+    border:none;
+    border-radius:0;
+}
+
+.navbar-nav li a,
+.navbar-brand{
+    color:white !important;
+}
+
+.dropdown-menu{
+    background:#1f1f3a;
+}
+
+.dropdown-menu a{
+    color:white !important;
+}
+
+.dropdown-menu a:hover{
+    background:#ff4fc4 !important;
+}
+
+.container-form{
+    max-width:800px;
+    margin:40px auto;
+    padding:30px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(0,0,0,.5);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+    font-weight:bold;
+    color:white;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:white;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:var(--color-input);
+    color:white;
+}
+
+input:focus,
+textarea:focus{
+    outline:none;
+    box-shadow:0 0 10px var(--color-acento);
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.btn-guardar{
+    background:linear-gradient(45deg,#ff4fc4,#8d4fff);
+    color:white;
+    border:none;
+    padding:12px 35px;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-guardar:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 15px #ff4fc4;
+}
+
+#mensaje{
+    margin-top:20px;
+    text-align:center;
+    font-size:18px;
+    color:#7dff8a;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-light" style="background-color:var(--color-barra);">
+    <div class="container">
+
+        <a class="navbar-brand" href="index1.html">
+            Home
+        </a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Unidad 1 <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="mostrar.html">Mostrar Datos</a></li>
+                        <li><a href="meterdatos.html">Meter Datos</a></li>
+                        <li><a href="tablafinal.html">Tabla Final</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Unidad 2 <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="relaciones01.html">Relación 1</a></li>
+                        <li><a href="relaciones02.html">Relación 2</a></li>
+                        <li><a href="capturadatosrelaconados.html">Relaciones de Datos</a></li>
+                        <li><a href="xmen.html">Registrar Personajes</a></li>
+                        <li><a href="tarjetas.html">Galería Personajes</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Unidad 3 <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="peliculas.html">Películas</a></li>
+                        <li><a href="pokedex.html">Pokedex</a></li>
+                        <li><a href="index.html">VELVET SOUND • Music Catalog</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-form">
+
+<h1> Registrar Personaje</h1>
+
+<form id="formPersonaje">
+
+<div class="form-group">
+<label for="nombre">Personaje de Serie</label>
+<input type="text" id="nombre" placeholder="Ej. Daenerys Targaryen" required>
+</div>
+
+<div class="form-group">
+<label for="serie">Serie a la que pertenece</label>
+<input type="text" id="serie" placeholder="Ej. Game of Thrones" required>
+</div>
+
+<div class="form-group">
+<label for="nombrereal">Nombre de la Actriz</label>
+<input type="text" id="nombrereal" placeholder="Ej. Emilia Clarke" required>
+</div>
+
+<div class="form-group">
+<label for="poderes">Habilidad Destacada</label>
+<input type="text" id="poderes" placeholder="Ej. Estrategia, Liderazgo" required>
+</div>
+
+<div class="form-group">
+<label for="altura">Altura</label>
+<input type="text" id="altura" placeholder="Ej. 1.75 m" required>
+</div>
+
+<div class="form-group">
+<label for="ocupacion">Ocupación</label>
+<input type="text" id="ocupacion" placeholder="Ej. Reina / Espía" required>
+</div>
+
+<div class="form-group">
+<label for="bio">Biografía</label>
+<textarea id="bio" placeholder="Escribe la historia del personaje..."></textarea>
+</div>
+
+<div class="form-group">
+<label for="imagen">Foto del Personaje</label>
+<input type="file" id="imagen" accept="image/*">
+</div>
+
+<div style="text-align:center;">
+<button type="submit" class="btn-guardar">
+Guardar Personaje
+</button>
+</div>
+
+</form>
+
+<div id="mensaje"></div>
+
+</div>
+
+<script>
+
+document.getElementById("formPersonaje").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const personaje = {
+
+nombre_personaje: document.getElementById("nombre").value,
+nombre_serie: document.getElementById("serie").value,
+actriz: document.getElementById("nombrereal").value,
+habilidad_destacada: document.getElementById("poderes").value,
+altura: document.getElementById("altura").value,
+ocupacion: document.getElementById("ocupacion").value,
+bio: document.getElementById("bio").value,
+foto_perfil: "imagenes/sin-foto.jpg"
+
+};
+
+let personajes =
+JSON.parse(localStorage.getItem("personajes")) || [];
+
+personajes.push(personaje);
+
+localStorage.setItem(
+"personajes",
+JSON.stringify(personajes)
+);
+
+document.getElementById("mensaje").innerHTML =
+"✅ Personaje guardado correctamente";
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>

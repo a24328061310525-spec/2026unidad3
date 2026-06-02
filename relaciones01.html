@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.cdnfonts.com/css/bergell-let" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<title>Personajes de Marvel</title>
+
+<style>
+:root{
+    --color-de-fondo:#0f0a39;
+    --color-de-letras:#fff7f7;
+    --color-barra:#000000d6;
+}
+
+body{
+    background-color:var(--color-de-fondo);
+    color:white;
+    font-family:Arial, sans-serif;
+}
+
+h1,h2{
+    text-align:center;
+    color:var(--color-de-letras);
+}
+
+.navbar{
+    border:none;
+    border-radius:0;
+    background-color:var(--color-barra);
+}
+
+.navbar-brand,
+.navbar-nav li a{
+    color:white !important;
+}
+
+.dropdown-menu{
+    background:#1f1b4d;
+}
+
+.dropdown-menu li a{
+    color:white !important;
+}
+
+.dropdown-menu li a:hover{
+    background:#8271b1 !important;
+}
+
+table{
+    width:95%;
+    margin:auto;
+    border-collapse:collapse;
+    background:rgba(0,0,0,.85);
+    box-shadow:0 0 15px black;
+}
+
+th{
+    background:#5d4f8f;
+    color:white;
+    padding:12px;
+    text-align:center;
+}
+
+td{
+    background:#8271b1;
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+tr:hover td{
+    background:#9b8aca;
+}
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+
+        <a class="navbar-brand" href="index1.html">Home</a>
+
+        <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Unidad 1 <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="mostrar.html">Mostrar Datos</a></li>
+                    <li><a href="meterdatos.html">Meter Datos</a></li>
+                    <li><a href="tablafinal.html">Tabla Final</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Unidad 2 <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="relaciones01.html">Relación 1</a></li>
+                    <li><a href="relaciones02.html">Relación 2</a></li>
+                    <li><a href="capturadatosrelaconados.html">Relaciones de datos</a></li>
+                    <li><a href="xmen.html">Registrar Personajes</a></li>
+                    <li><a href="tarjetas.html">Galería Personajes</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Unidad 3 <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="peliculas.html">Películas</a></li>
+                    <li><a href="pokedex.html">Pokedex</a></li>
+                    <li><a href="index.html">VELVET SOUND • Music Catalog</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+
+<h1>Personajes de Marvel</h1>
+<h2>Personajes</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Alias</th>
+            <th>Fecha de Creación</th>
+            <th>Descripción</th>
+            <th>Título de Comic</th>
+            <th>Nombre del Superpoder</th>
+        </tr>
+    </thead>
+
+    <tbody id="tablaMarvel"></tbody>
+</table>
+
+<script>
+
+const personajesMarvel =
+JSON.parse(localStorage.getItem("personajesMarvel")) || [
+
+{
+personajeID:1,
+nombre:"Peter Parker",
+alias:"Spider-Man",
+fechaCreacion:"1962-08-01",
+descripcion:"Joven héroe con poderes arácnidos",
+titulo:"Amazing Fantasy #15",
+nombre_superpoder:"Sentido Arácnido"
+},
+
+{
+personajeID:2,
+nombre:"Tony Stark",
+alias:"Iron Man",
+fechaCreacion:"1963-03-01",
+descripcion:"Genio multimillonario",
+titulo:"Tales of Suspense #39",
+nombre_superpoder:"Armadura Tecnológica"
+},
+
+{
+personajeID:3,
+nombre:"Steve Rogers",
+alias:"Captain America",
+fechaCreacion:"1941-03-01",
+descripcion:"Supersoldado americano",
+titulo:"Captain America Comics #1",
+nombre_superpoder:"Fuerza Mejorada"
+},
+
+{
+personajeID:4,
+nombre:"Bruce Banner",
+alias:"Hulk",
+fechaCreacion:"1962-05-01",
+descripcion:"Científico transformado por radiación",
+titulo:"The Incredible Hulk #1",
+nombre_superpoder:"Fuerza Ilimitada"
+},
+
+{
+personajeID:5,
+nombre:"Thor Odinson",
+alias:"Thor",
+fechaCreacion:"1962-08-01",
+descripcion:"Dios del trueno",
+titulo:"Journey Into Mystery #83",
+nombre_superpoder:"Control del Trueno"
+}
+
+];
+
+const tabla = document.getElementById("tablaMarvel");
+
+personajesMarvel.forEach(personaje => {
+
+tabla.innerHTML += `
+<tr>
+<td>${personaje.personajeID}</td>
+<td>${personaje.nombre}</td>
+<td>${personaje.alias}</td>
+<td>${personaje.fechaCreacion}</td>
+<td>${personaje.descripcion}</td>
+<td>${personaje.titulo}</td>
+<td>${personaje.nombre_superpoder}</td>
+</tr>
+`;
+
+});
+
+</script>
+
+</body>
+</html>

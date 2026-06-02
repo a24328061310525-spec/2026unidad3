@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Películas - Modo Oscuro</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilopeliculas.css">
+    <link href="https://fonts.cdnfonts.com/css/gladriel" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/giambattistavspetit" rel="stylesheet">
+
+    <style>
+        /* Estilos integrados para asegurar el fondo oscuro y diseño de tarjetas */
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar personalizada en tonos oscuros */
+        .navbar-custom {
+            background-color: #1a1a1a !important;
+            border-bottom: 1px solid #333;
+        }
+        .navbar-custom .navbar-brand, 
+        .navbar-custom .nav-link {
+            color: #e0e0e0 !important;
+        }
+        .navbar-custom .nav-link:hover {
+            color: #ffc107 !important; /* Dorado al pasar el cursor */
+        }
+        .dropdown-menu {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+        }
+        .dropdown-item {
+            color: #e0e0e0;
+        }
+        .dropdown-item:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Buscador */
+        #form input[type="text"] {
+            background-color: #222;
+            border: 1px solid #444;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+        }
+        #form input[type="submit"] {
+            background-color: #ffc107;
+            border: none;
+            color: black;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #form input[type="submit"]:hover {
+            background-color: #e0a800;
+        }
+
+        /* Contenedor de películas (Grid) */
+        .movies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        /* Tarjeta de Película individual */
+        .movie {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .movie:hover {
+            transform: scale(1.02);
+        }
+        .movie img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .movie-info {
+            color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            letter-spacing: 0.5px;
+        }
+        .movie-info h3 {
+            font-size: 1rem;
+            margin: 0;
+        }
+        .movie-info span {
+            background-color: #121212;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        /* Colores de las notas */
+        .movie-info span.green { color: #2ecc71; }
+        .movie-info span.orange { color: #f39c12; }
+        .movie-info span.red { color: #e74c3c; }
+
+        /* Descripción flotante (Overview) */
+        .overview {
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 20px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            max-height: 100%;
+            transform: translateY(101%);
+            transition: transform 0.3s ease-in;
+            overflow-y: auto;
+        }
+        .movie:hover .overview {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+        <a class="navbar-brand" href="index1.html" style="font-family: 'Times New Roman', Times, serif">Home</a>
+        
+        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Unidad 1
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                        <li><a class="dropdown-item" href="mostrar.html">Mostrar Datos</a></li>
+                        <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
+                        <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Unidad 2
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                        <li><a class="dropdown-item" href="relaciones01.html">Relación 1</a></li>
+                        <li><a class="dropdown-item" href="relaciones02.html">Relación 2</a></li>
+                        <li><a class="dropdown-item" href="capturadatosrelaconados.html">Relaciones de datos</a></li>
+                        <li><a class="dropdown-item" href="xmen.html">Registrar Personajes</a></li>
+                        <li><a class="dropdown-item" href="tarjetas.html">Galeria Personajes</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Unidad 3
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                        <li><a class="dropdown-item" href="peliculas.html">Películas</a></li>
+                        <li><a class="dropdown-item" href="pokedex.html">Pokedex</a></li>
+                        <li><a class="dropdown-item" href="index.html">VELVET SOUND • Music Catalog</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-4 text-center"> 
+    <h1 style="font-family: 'Gladriel', sans-serif;">ALISSON SARAI SANTIAGO CRUZ</h1>
+    <h3 style="color: #aaa;">Alisson</h3>
+    
+    <form id="form" class="mt-3">
+        <input type="text" id="search" placeholder=" Ej. Malefica">
+        <input type="submit" value="Buscar">
+    </form> 
+</div>
+
+<main class="container">
+    <section id="main" class="movies"></section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1';
+    const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
+    const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query=';
+
+    const main = document.getElementById('main');
+    const form = document.getElementById('form');
+    const search = document.getElementById('search');
+
+    getMovie(API_URL);
+
+    async function getMovie(url) {
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+            showMovies(data.results);
+        } catch (error) {
+            console.error("Error cargando películas:", error);
+        }
+    }
+
+    function showMovies(movies) {
+        main.innerHTML = '';
+        if (!movies || movies.length === 0) {
+            main.innerHTML = '<h2 class="text-center w-100">No se encontraron películas.</h2>';
+            return;
+        }
+
+        movies.forEach((movie) => {
+            const { title, poster_path, vote_average, overview, release_date } = movie;
+            const movieEl = document.createElement('div');
+            movieEl.classList.add('movie');
+
+            const imgSrc = poster_path ? (IMG_PATH + poster_path) : 'https://via.placeholder.com/1280x1920?text=Sin+Póster';
+
+            movieEl.innerHTML = `
+                <img src="${imgSrc}" alt="${title}">
+                <div class="movie-info">
+                    <h3>${title}</h3>
+                    <span class="${getClassByRate(vote_average)}">${vote_average.toFixed(1)}</span>
+                </div>
+                <div class="overview">
+                    <h4 class="text-warning">Overview</h4>
+                    <p>${overview ? overview : 'Sin descripción disponible.'}</p>
+                    <h5 class="text-warning">Release Date</h5>
+                    <p>${release_date ? release_date : 'Desconocida'}</p>
+                </div>
+            `;
+            main.appendChild(movieEl);
+        });
+    }
+
+    function getClassByRate(vote) {
+        if (vote >= 8) return 'green';
+        if (vote >= 5) return 'orange';
+        return 'red';
+    } 
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const searchTerm = search.value.trim();
+
+        if (searchTerm && searchTerm !== '') {
+            getMovie(SEARCH_API + encodeURIComponent(searchTerm));
+            search.value = '';
+        } else {
+            window.location.reload();
+        }
+    });
+</script>
+</body>
+</html>

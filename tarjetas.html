@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Galería de Personajes</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+
+body{
+    background: linear-gradient(135deg,#1e1b4b,#312e81,#7c3aed);
+    min-height:100vh;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+
+.navbar{
+    background:rgba(0,0,0,.85);
+    border:none;
+    border-radius:0;
+    margin-bottom:40px;
+}
+
+.navbar-brand,
+.navbar-nav > li > a{
+    color:white !important;
+}
+
+.dropdown-menu{
+    background:#1e1b4b;
+}
+
+.dropdown-menu li a{
+    color:white !important;
+}
+
+.dropdown-menu li a:hover{
+    background:#ec4899 !important;
+    color:white !important;
+}
+
+/* TITULOS */
+
+h1{
+    font-size:50px;
+    font-weight:bold;
+    margin-top:20px;
+    text-shadow:0 0 15px rgba(255,255,255,.4);
+}
+
+.subtitulo{
+    text-align:center;
+    font-size:18px;
+    margin-bottom:30px;
+    color:#e5e7eb;
+}
+
+/* TARJETAS */
+
+.cards-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:30px;
+    padding:30px;
+}
+
+.x-card{
+    background:rgba(15,23,42,.85);
+    border-radius:25px;
+    overflow:hidden;
+    backdrop-filter:blur(15px);
+    transition:.4s;
+    box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+
+.x-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(236,72,153,.6);
+}
+
+.card-header{
+    background:linear-gradient(90deg,#ec4899,#8b5cf6);
+    padding:18px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.card-img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
+
+.card-body{
+    padding:20px;
+}
+
+.card-body p{
+    margin-bottom:10px;
+}
+
+.stat-label{
+    color:#ec4899;
+    font-weight:bold;
+}
+
+hr{
+    border-color:rgba(255,255,255,.2);
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+
+        <a class="navbar-brand" href="index1.html">
+            Home
+        </a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Unidad 1 <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="mostrar.html">Mostrar Datos</a></li>
+                        <li><a href="meterdatos.html">Meter Datos</a></li>
+                        <li><a href="tablafinal.html">Tabla Final</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Unidad 2 <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="relaciones01.html">Relación 1</a></li>
+                        <li><a href="relaciones02.html">Relación 2</a></li>
+                        <li><a href="capturadatosrelaconados.html">Relaciones de Datos</a></li>
+                        <li><a href="xmen.html">Registrar Personajes</a></li>
+                        <li><a href="tarjetas.html">Galería Personajes</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Unidad 3 <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="peliculas.html">Películas</a></li>
+                        <li><a href="pokedex.html">Pokedex</a></li>
+                        <li><a href="index.html">VELVET SOUND • Music Catalog</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <h1 class="text-center">
+        Galería de Personajes de Series
+    </h1>
+
+    <p class="subtitulo">
+        Consulta de Registros Relacionados
+    </p>
+
+    <div class="cards-grid" id="galeria"></div>
+
+</div>
+
+<script>
+
+const personajes =
+JSON.parse(localStorage.getItem("personajes")) || [];
+
+const galeria = document.getElementById("galeria");
+
+personajes.forEach(p => {
+
+galeria.innerHTML += `
+
+<div class="x-card">
+
+    <div class="card-header">
+        ${p.nombre_personaje}
+    </div>
+
+    <img src="${p.foto_perfil}" class="card-img">
+
+    <div class="card-body">
+
+        <p><span class="stat-label">Actriz:</span> ${p.actriz}</p>
+
+        <p><span class="stat-label">Serie:</span> ${p.nombre_serie}</p>
+
+        <p><span class="stat-label">Habilidad:</span> ${p.habilidad_destacada}</p>
+
+        <p><span class="stat-label">Altura:</span> ${p.altura}</p>
+
+        <hr>
+
+        <p>
+            <em>${p.bio}</em>
+        </p>
+
+    </div>
+
+</div>
+
+`;
+
+});
+
+</script>
+
+</body>
+</html>

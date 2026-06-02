@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primera página - Registro Marvel</title>
+    
+    <link href="https://fonts.cdnfonts.com/css/austin-3" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-de-fondo: #4f4964;
+            --color-de-lertras: #fff7f7; 
+            --color-barra: #000000d6;     
+            --color-boton: #e4f7ff;     
+            --color-extra: #110606;    
+        }
+
+        body {
+            background-color: var(--color-de-fondo);
+            color: var(--color-de-lertras);
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos personalizados para el menú adaptado */
+        .navbar-custom {
+            background-color: var(--color-barra) !important;
+            padding: 10px 0;
+        }
+        .navbar-custom .navbar-brand, 
+        .navbar-custom .nav-link {
+            color: var(--color-de-lertras) !important;
+        }
+        .navbar-custom .dropdown-menu {
+            background-color: rgba(20, 20, 20, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .navbar-custom .dropdown-item {
+            color: #ffffff !important;
+        }
+        .navbar-custom .dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        h1 {
+            font-family: 'Austin', sans-serif;
+            color: var(--color-de-lertras);
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            width: 50%;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: left; /* Alinea los textos del formulario a la izquierda para mejor orden */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--color-de-lertras);
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%; /* Cambiado a 100% para que se adapte al contenedor del formulario */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid red;
+            border-radius: 5px;
+            color: black;
+            background-color: #fff;
+        }
+
+        input[type="submit"] {
+            background-color: yellow;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e6e600;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+        <a class="navbar-brand" href="index1.html" style="font-family: 'Times New Roman', Times, serif">Home</a>
+
+        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Unidad 1
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                        <li><a class="dropdown-item" href="mostrar.html">Mostrar Datos</a></li>
+                        <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
+                        <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Unidad 2
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                        <li><a class="dropdown-item" href="relaciones01.html">Relación 1</a></li>
+                        <li><a class="dropdown-item" href="relaciones02.html">Relación 2</a></li>
+                        <li><a class="dropdown-item" href="capturadatosrelaconados.html">Relaciones de datos</a></li>
+                        <li><a class="dropdown-item" href="xmen.html">Registrar Personajes</a></li>
+                        <li><a class="dropdown-item" href="tarjetas.html">Galeria Personajes</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Unidad 3
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                        <li><a class="dropdown-item" href="peliculas.html">Películas</a></li>
+                        <li><a class="dropdown-item" href="pokedex.html">Pokedex</a></li>
+                        <li><a class="dropdown-item" href="index.html">VELVET SOUND • Music Catalog</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container text-center">
+    <h1>Agregar Personajes de Marvel</h1>
+
+    <form id="formMarvel">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label for="alias">Alias:</label>
+        <input type="text" id="alias" required>
+
+        <label for="fechacreacion">Fecha de creación:</label>
+        <input type="text" id="fechacreacion" required>
+
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" required>
+
+        <label for="comics">Comic:</label>
+        <input type="text" id="comics" required>
+
+        <label for="superpoderes">Superpoder:</label>
+        <input type="text" id="superpoderes" required>
+
+        <input type="submit" value="Guardar Personaje">
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.getElementById("formMarvel").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const personajesMarvel = JSON.parse(localStorage.getItem("personajesMarvel")) || [];
+
+    const nuevoPersonaje = {
+        personajeID: personajesMarvel.length + 1,
+        nombre: document.getElementById("nombre").value,
+        alias: document.getElementById("alias").value,
+        fechaCreacion: document.getElementById("fechacreacion").value,
+        descripcion: document.getElementById("descripcion").value,
+        titulo: document.getElementById("comics").value,
+        nombre_superpoder: document.getElementById("superpoderes").value
+    };
+
+    personajesMarvel.push(nuevoPersonaje);
+    localStorage.setItem("personajesMarvel", JSON.stringify(personajesMarvel));
+
+    alert("Personaje guardado correctamente");
+    document.getElementById("formMarvel").reset();
+});
+</script>
+
+</body>
+</html>
