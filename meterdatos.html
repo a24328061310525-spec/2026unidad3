@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla de Personajes</title>
-    
+    <title>Meter Datos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <style>
         body {
             margin: 0;
@@ -17,157 +15,165 @@
             background-position: center;
             background-attachment: fixed;
             color: white;
-            text-align: center; 
         }
-
         :root {
             --color-de-lertras: #ffffff; 
             --color-barra: #000000d6;      
         }
-
-        /* Ajustes para el menú adaptado a tu estilo */
         .navbar-custom {
             background-color: var(--color-barra) !important;
         }
-        .navbar-custom .navbar-brand, 
-        .navbar-custom .nav-link {
+        .navbar-custom .navbar-brand, .navbar-custom .nav-link {
             color: var(--color-de-lertras) !important;
         }
         .dropdown-menu {
             background-color: rgba(0, 0, 0, 0.9);
             border: 1px solid #b6097f;
         }
-        .dropdown-item {
-            color: #ffffff !important;
-        }
-        .dropdown-item:hover {
-            background-color: #b6097f !important;
-            color: #fff !important;
-        }
-
-        h1 {
-            margin-top: 30px;
-            font-size: 40px;
-            text-shadow: 2px 2px 5px black;
-        }
-
-        table {
-            margin: 30px auto;
-            border-collapse: collapse;
-            width: 95%;
+        .dropdown-item { color: #ffffff !important; }
+        .dropdown-item:hover { background-color: #b6097f !important; }
+        
+        .form-container {
             background-color: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(5px);
+            border: 2px solid #b6097f;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
             box-shadow: 0px 0px 15px black;
         }
-
-        th {
+        .btn-custom {
             background-color: #b6097f;
-            padding: 10px;
+            color: white;
+            font-weight: bold;
+            border: none;
         }
-
-        td {
-            padding: 8px;
-            vertical-align: middle;
+        .btn-custom:hover {
+            background-color: #8c0561;
+            color: white;
         }
-
-        tr:nth-child(even) {
-            background-color: rgba(255,255,255,0.1);
+        label {
+            font-weight: bold;
+            color: #b6097f;
         }
-
-        tr:hover {
-            background-color: rgba(255,255,255,0.3);
-            transition: 0.3s;
+        .form-control, .form-select {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid #b6097f;
         }
-
-        td img {
-            width: 80px; 
-            height: auto;
-            border-radius: 10px;
+        .form-control:focus, .form-select:focus {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-color: #ff00b3;
+            box-shadow: 0 0 8px rgba(182, 9, 127, 0.6);
         }
     </style>
 </head>
 <body>
 
-<div>
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container">
-            <a class="navbar-brand" href="index1.html" style="font-family: 'Times New Roman', Times, serif">Home</a>
-
-            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Unidad 1
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                            <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
-                            <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Unidad 2
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                            <li><a class="dropdown-item" href="relaciones01.html">Relación 1</a></li>
-                            <li><a class="dropdown-item" href="relaciones02.html">Relación 2</a></li>
-                            <li><a class="dropdown-item" href="capturadatosrelaconados.html">Relaciones de datos</a></li>
-                            <li><a class="dropdown-item" href="xmen.html">Registrar Personajes</a></li>
-                            <li><a class="dropdown-item" href="tarjetas.html">Galeria Personajes</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Unidad 3
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
-                            <li><a class="dropdown-item" href="peliculas.html">Películas</a></li>
-                            <li><a class="dropdown-item" href="pokedex.html">Pokedex</a></li>
-                            <li><a class="dropdown-item" href="index.html">VELVET SOUND • Music Catalog</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+        <a class="navbar-brand" href="index1.html" style="font-family: 'Times New Roman', Times, serif">Home</a>
+        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Unidad 1</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
+                        <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Unidad 2</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="relaciones01.html">Relación 1</a></li>
+                        <li><a class="dropdown-item" href="relaciones02.html">Relación 2</a></li>
+                        <li><a class="dropdown-item" href="capturadatosrelaconados.html">Relaciones de datos</a></li>
+                        <li><a class="dropdown-item" href="xmen.html">Registrar Personajes</a></li>
+                        <li><a class="dropdown-item" href="tarjetas.html">Galeria Personajes</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Unidad 3</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="peliculas.html">Películas</a></li>
+                        <li><a class="dropdown-item" href="pokedex.html">Pokedex</a></li>
+                        <li><a class="dropdown-item" href="index.html">VELVET SOUND • Music Catalog</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </nav>
-</div>
+    </div>
+</nav>
 
-<h1>Catálogo de Personajes</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 form-container">
+            <h2 class="text-center mb-4" style="text-shadow: 2px 2px 5px black;">Registrar Nuevo Personaje</h2>
+            
+            <form id="formularioPersonaje">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="personaje" class="form-label">Nombre del Personaje</label>
+                        <input type="text" class="form-control" id="personaje" required placeholder="Ej. Batman">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="nombrereal" class="form-label">Nombre Real</label>
+                        <input type="text" class="form-control" id="nombrereal" required placeholder="Ej. Bruce Wayne">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="altura" class="form-label">Altura</label>
+                        <input type="text" class="form-control" id="altura" placeholder="Ej. 1.88 m">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="peso" class="form-label">Peso</label>
+                        <input type="text" class="form-control" id="peso" placeholder="Ej. 95 kg">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="sexo" class="form-label">Sexo</label>
+                        <select class="form-select" id="sexo">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="poderes" class="form-label">Poderes / Habilidades</label>
+                        <input type="text" class="form-control" id="poderes" placeholder="Ej. Intelecto genio, combate">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="debilidad" class="form-label">Debilidad</label>
+                        <input type="text" class="form-control" id="debilidad" placeholder="Ej. Recordar a sus padres">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="creacion" class="form-label">Año de Creación</label>
+                        <input type="text" class="form-control" id="creacion" placeholder="Ej. 1939">
+                    </div>
+                    <div class="col-md-8">
+                        <label for="imagen" class="form-label">Ruta de la Imagen / URL</label>
+                        <input type="text" class="form-control" id="imagen" placeholder="Ej. imagenes/batman.jpg">
+                    </div>
+                    <div class="col-12">
+                        <label for="biografia" class="form-label">Biografía corta</label>
+                        <textarea class="form-control" id="biografia" rows="3" placeholder="Breve historia del personaje..."></textarea>
+                    </div>
+                    <div class="col-12 text-center mt-4">
+                        <button type="submit" class="btn btn-custom px-5 py-2">Guardar Personaje</button>
+                    </div>
+                </div>
+            </form>
 
-<div class="table-responsive">
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre Real</th>
-                <th>Personaje</th>
-                <th>Altura</th>
-                <th>Peso</th>
-                <th>Poderes</th>
-                <th>Sexo</th>
-                <th>Debilidad</th>
-                <th>Creación</th>
-                <th>Biografía</th>
-                <th>Imagen</th>
-            </tr>
-        </thead>
-        <tbody id="tablaPersonajes">
-        </tbody>
-    </table>
+        </div>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-// 1. Personajes base por defecto
+// Arreglo de base por si el LocalStorage está totalmente vacío
 const personajesPorDefecto = [
     {
         id: 1,
@@ -193,36 +199,43 @@ const personajesPorDefecto = [
         debilidad: "Dependencia tecnológica",
         creacion: "1963",
         biografia: "Genio multimillonario",
-        imagen: "imagenes/iroman.webp" // 👈 Corregido con la extensión .webp que indicaste
+        imagen: "imagenes/iroman.webp"
     }
 ];
 
-// 2. Cargamos los datos de la memoria localStorage si existen, si no, usamos la lista por defecto
-const datosGuardados = localStorage.getItem("misPersonajes");
-const personajes = datosGuardados ? JSON.parse(datosGuardados) : personajesPorDefecto;
+// Al cargar el archivo, extraemos lo que ya esté guardado; si no hay nada, tomamos el arreglo base
+let datosGuardados = localStorage.getItem("misPersonajes");
+let personajes = datosGuardados ? JSON.parse(datosGuardados) : personajesPorDefecto;
 
-const tabla = document.getElementById("tablaPersonajes");
+// Escuchamos el evento de envío del formulario
+document.getElementById("formularioPersonaje").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita que la página se recargue automáticamente
 
-// Limpiamos contenido previo antes de renderizar
-tabla.innerHTML = "";
+    // Construimos el nuevo objeto dinámico con los IDs de los inputs
+    const nuevoPersonaje = {
+        id: personajes.length + 1,
+        nombrereal: document.getElementById("nombrereal").value,
+        personaje: document.getElementById("personaje").value,
+        altura: document.getElementById("altura").value || "N/A",
+        peso: document.getElementById("peso").value || "N/A",
+        poderes: document.getElementById("poderes").value || "Ninguno",
+        sexo: document.getElementById("sexo").value,
+        debilidad: document.getElementById("debilidad").value || "Ninguna",
+        creacion: document.getElementById("creacion").value || "N/A",
+        biografia: document.getElementById("biografia").value || "Sin descripción.",
+        imagen: document.getElementById("imagen").value || "imagenes/spiderman.jpg" // Imagen por defecto si se deja vacío
+    };
 
-// 3. Pintamos todos los personajes de la lista en la tabla
-personajes.forEach(p => {
-    tabla.innerHTML += `
-    <tr>
-        <td>${p.id}</td>
-        <td>${p.nombrereal}</td>
-        <td>${p.personaje}</td>
-        <td>${p.altura}</td>
-        <td>${p.peso}</td>
-        <td>${p.poderes}</td>
-        <td>${p.sexo}</td>
-        <td>${p.debilidad}</td>
-        <td>${p.creacion}</td>
-        <td>${p.biografia}</td>
-        <td><img src="${p.imagen}" alt="${p.personaje}"></td>
-    </tr>
-    `;
+    // Agregamos el personaje nuevo al arreglo en memoria de esta página
+    personajes.push(nuevoPersonaje);
+
+    // 🔥 LA CLAVE DE TODO: Reescribimos la memoria compartida del navegador
+    localStorage.setItem("misPersonajes", JSON.stringify(personajes));
+
+    alert("¡Personaje guardado con éxito! Revisa la galería o las tablas.");
+    
+    // Reseteamos visualmente los campos del formulario
+    document.getElementById("formularioPersonaje").reset();
 });
 </script>
 </body>
