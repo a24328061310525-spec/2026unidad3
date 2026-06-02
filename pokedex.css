@@ -1,0 +1,140 @@
+/* Configuracion General */
+body {
+    background-color: #FDE0E2; /* Rojo clasico de Pokedex */
+    font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    position: relative; /* Permite posicionar el logo respecto a la pantalla */
+}
+
+/* Estilo para tu Logo de la Esquina */
+.logo-rincon {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 80px; /* Tamaño discreto para la esquina */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #313131;
+    margin-top: 40px; /* Espacio para que no se encime con el logo en pantallas chicas */
+}
+
+/* Contenedor Principal */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+    gap: 20px;
+    background-color: rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+/* Buscador */
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.placeholder {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    width: 60%;
+    font-size: 18px;
+}
+
+.button {
+    background-color: #f9ee60;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #313131;
+}
+
+/* Imagen del Pokemon */
+.image-wrapper {
+    background-color: #ffffff;
+    border: 10px solid #ded;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+}
+
+.pokeImage {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+/* Informacion */
+.info-container {
+    background-color: #313131;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px #000;
+}
+
+.stat-item {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #444;
+}
+
+.name {
+    color: #f9ee60;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Gráfica */
+.grafica {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
+}
+
+/* Adaptacion para Computadoras (Pantallas grandes) */
+@media (min-width: 768px) {
+    .main-container {
+        flex-direction: row; 
+        align-items: stretch;
+    }
+
+    .image-wrapper, .info-container {
+        flex: 1; 
+    }   
+
+    h1 {
+        font-size: 2.5rem;
+        margin-top: 20px;
+    }
+    
+    .logo-rincon {
+        width: 120px; /* Un poco más grande en computadoras */
+    }
+}

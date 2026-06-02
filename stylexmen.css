@@ -1,0 +1,65 @@
+:root{
+    --color-de-fondo: #9a91b9;
+    --color-de-lertras: #fff7f7; 
+    --color-barra: #000000d6;     
+    --color-boton: #e4f7ff;     
+    --color-extra: #110606;    
+}
+
+body{
+    background-color: var(--color-de-fondo);
+}
+
+h1{
+    font-family: 'Austin', sans-serif;
+    color: var(--color-de-lertras);
+    text-align: center;
+}
+
+/* Estilos para que las tarjetas se vean bien alineadas */
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.x-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    width: 280px;
+    overflow: hidden;
+    color: #333;
+}
+
+.card-header {
+    background-color: var(--color-barra);
+    color: var(--color-de-lertras);
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.stat-label {
+    font-weight: bold;
+    color: var(--color-extra);
+}
+
+.card-bio {
+    margin-top: 10px;
+    font-size: 0.9em;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
