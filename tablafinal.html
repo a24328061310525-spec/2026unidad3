@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,6 +78,7 @@ th{
 
 td{
     padding:8px;
+    vertical-align: middle;
 }
 
 tr:nth-child(even){
@@ -154,82 +155,95 @@ img{
 
 <h1>Tabla Final de Personajes</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre Real</th>
-            <th>Personaje</th>
-            <th>Altura</th>
-            <th>Peso</th>
-            <th>Poderes</th>
-            <th>Sexo</th>
-            <th>Debilidad</th>
-            <th>Creación</th>
-            <th>Biografía</th>
-            <th>Imagen</th>
-        </tr>
-    </thead>
+<div style="overflow-x:auto; width:100%;">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre Real</th>
+                <th>Personaje</th>
+                <th>Altura</th>
+                <th>Peso</th>
+                <th>Poderes</th>
+                <th>Sexo</th>
+                <th>Debilidad</th>
+                <th>Creación</th>
+                <th>Biografía</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
 
-    <tbody id="tablaPersonajes"></tbody>
-</table>
+        <tbody id="tablaPersonajes"></tbody>
+    </table>
+</div>
 
 <script>
-
-const personajes = [
-
-{
-id:1,
-nombrereal:"Tom Holland",
-personaje:"Spider-Man",
-altura:"1.73",
-peso:"76 kg",
-poderes:"Sentido arácnido",
-sexo:"Masculino",
-debilidad:"Sonidos fuertes",
-creaton:"1962",
-biografia:"Héroe de Marvel",
-imagen:"imagenes/spiderman.jpg"
-},
-
-{
-id:2,
-nombrereal:"Robert Downey Jr.",
-personaje:"Iron Man",
-altura:"1.74",
-peso:"78 kg",
-poderes:"Armadura tecnológica",
-sexo:"Masculino",
-debilidad:"Dependencia tecnológica",
-creaton:"1963",
-biografia:"Genio multimillonario",
-imagen:"imagenes/iroman.webp"
-}
-
+// 1. Definimos los dos personajes fijos por defecto
+const personajesPorDefecto = [
+    {
+        id: 1,
+        nombrereal: "Tom Holland",
+        personaje: "Spider-Man",
+        altura: "1.73 m",
+        peso: "76 kg",
+        poderes: "Sentido arácnido",
+        sexo: "Masculino",
+        debilidad: "Sonidos fuertes",
+        creaton: "1962",
+        biografia: "Héroe de Marvel",
+        imagen: "imagenes/spiderman.jpg"
+    },
+    {
+        id: 2,
+        nombrereal: "Robert Downey Jr.",
+        personaje: "Iron Man",
+        altura: "1.74 m",
+        peso: "78 kg",
+        poderes: "Armadura tecnológica",
+        sexo: "Masculino",
+        debilidad: "Dependencia tecnológica",
+        creaton: "1963",
+        biografia: "Genio multimillonario",
+        imagen: "imagenes/iroman.webp" // 👈 Sincronizado a .webp
+    }
 ];
+
+// 2. Intentamos jalar los datos agregados desde la memoria del navegador
+const datosGuardados = localStorage.getItem("misPersonajes");
+const personajes = datosGuardados ? JSON.parse(datosGuardados) : personajesPorDefecto;
 
 const tabla = document.getElementById("tablaPersonajes");
 
+// Limpiamos contenido por seguridad antes de renderizar
+tabla.innerHTML = "";
+
+// 3. Pintamos las filas en la tabla
 personajes.forEach(personaje => {
+    // Si metiste datos en el formulario, aseguramos que se muestren las propiedades correctas
+    const altura = personaje.altura || "N/A";
+    const peso = personaje.peso || "N/A";
+    const poderes = personaje.poderes || "No especificado";
+    const sexo = personaje.sexo || "No especificado";
+    const debilidad = personaje.debilidad || "No especificada";
+    const creaton = personaje.creaton || personaje.creacion || "N/A";
+    const biografia = personaje.biografia || "Sin descripción.";
 
-tabla.innerHTML += `
-<tr>
-<td>${personaje.id}</td>
-<td>${personaje.nombrereal}</td>
-<td>${personaje.personaje}</td>
-<td>${personaje.altura}</td>
-<td>${personaje.peso}</td>
-<td>${personaje.poderes}</td>
-<td>${personaje.sexo}</td>
-<td>${personaje.debilidad}</td>
-<td>${personaje.creaton}</td>
-<td>${personaje.biografia}</td>
-<td><img src="${personaje.imagen}" alt=""></td>
-</tr>
-`;
-
+    tabla.innerHTML += `
+    <tr>
+        <td>${personaje.id}</td>
+        <td>${personaje.nombrereal}</td>
+        <td>${personaje.personaje}</td>
+        <td>${altura}</td>
+        <td>${peso}</td>
+        <td>${poderes}</td>
+        <td>${sexo}</td>
+        <td>${debilidad}</td>
+        <td>${creaton}</td>
+        <td>${biografia}</td>
+        <td><img src="${personaje.imagen}" alt="${personaje.personaje}"></td>
+    </tr>
+    `;
 });
-
 </script>
 
 </body>
