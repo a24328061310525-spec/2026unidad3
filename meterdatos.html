@@ -43,6 +43,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
                         <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
+                        <li><a class="dropdown-item" href="tarjetas.html">Galería Personajes</a></li>
                     </ul>
                 </li>
             </ul>
@@ -89,8 +90,8 @@
                         <input type="date" class="form-control" id="creaton" required>
                     </div>
                     <div class="col-md-8">
-                        <label for="imagen">Nombre de la Imagen (de tu carpeta)</label>
-                        <input type="text" class="form-control" id="imagen" placeholder="Ej. aurora1.jpg">
+                        <label for="inputImagen">Subir Foto de la Princesa</label>
+                        <input type="file" class="form-control" id="inputImagen" accept="image/*" required>
                     </div>
                     <div class="col-12">
                         <label for="biografia">Biografía / Historia</label>
@@ -107,17 +108,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Aquí extraemos exactamente los datos iniciales que tienes en tu archivo SQL
+// Datos base de tu SQL
 const princesasIniciales = [
-    { id: 2, nombrereal: "Aurora", personaje: "Bella Durmiente", altura: 168, peso: 55, poderes: "Gracia y encanto", sexo: "Femenino", debilidad: "Maldición del sueño", creaton: "1959-01-29", biografia: "Princesa maldecida por un hada oscura a dormir profundamente hasta recibir el beso de amor verdadero.", imagen: "aurora1.jpg" },
-    { id: 3, nombrereal: "Cenicienta", personaje: "Cinderella", altura: 165, peso: 55, poderes: "Esperanza y resiliencia", sexo: "Femenino", debilidad: "Exceso de bondad", creaton: "1950-02-15", biografia: "Joven maltratada por su madrastra que, con ayuda mágica, asiste al baile real y cambia su destino.", imagen: "Cenicienta.jpg" },
-    { id: 5, nombrereal: "Ariel", personaje: "La Sirenita", altura: 165, peso: 55, poderes: "Respirar bajo el agua", sexo: "Femenino", debilidad: "Curiosidad extrema", creaton: "1989-11-17", biografia: "Sirena soñadora que anhela vivir en el mundo humano y desafía las reglas por amor y libertad.", imagen: "ariel.jpg" },
-    { id: 6, nombrereal: "Bella", personaje: "Belle", altura: 168, peso: 58, poderes: "Inteligencia y empatía", sexo: "Femenino", debilidad: "Sacrificio personal", creaton: "1991-11-22", biografia: "Joven amante de los libros que ve más allá de las apariencias y ayuda a romper un hechizo", imagen: "bella.jpg" },
-    { id: 7, nombrereal: "Mulan", personaje: "Fa Mulan", altura: 168, peso: 57, poderes: "Estrategia y combate", sexo: "Femenino", debilidad: "Presión social", creaton: "1998-06-19", biografia: "Joven valiente que se hace pasar por hombre para proteger a su padre y salvar a su nación.", imagen: "Mulan.jpg" },
-    { id: 35, nombrereal: "Elsa", personaje: "Reina de hielo", altura: 165, peso: 56, poderes: "Control del hielo y la nieve", sexo: "Femenino", debilidad: "Miedo a sus poderes", creaton: "2013-11-27", biografia: "Reina con poderes de hielo que aprende a aceptarse.", imagen: "Elsa.jpg" }
+    { id: 2, nombrereal: "Aurora", personaje: "Bella Durmiente", altura: 168, peso: 55, poderes: "Gracia y encanto", sexo: "Femenino", debilidad: "Maldición del sueño", creaton: "1959-01-29", biografia: "Princesa maldecida por un hada oscura a dormir profundamente hasta recibir el beso de amor verdadero.", imagen: "imagenes/aurora1.jpg" },
+    { id: 3, nombrereal: "Cenicienta", personaje: "Cinderella", altura: 165, peso: 55, poderes: "Esperanza y resiliencia", sexo: "Femenino", debilidad: "Exceso de bondad", creaton: "1950-02-15", biografia: "Joven maltratada por su madrastra que, con ayuda mágica, asiste al baile real y cambia su destino.", imagen: "imagenes/Cenicienta.jpg" },
+    { id: 5, nombrereal: "Ariel", personaje: "La Sirenita", altura: 165, peso: 55, poderes: "Respirar bajo el agua", sexo: "Femenino", debilidad: "Curiosidad extrema", creaton: "1989-11-17", biografia: "Sirena soñadora que anhela vivir en el mundo humano y desafía las reglas por amor y libertad.", imagen: "imagenes/ariel.jpg" }
 ];
 
-// Si el navegador no tiene guardado nada, le inyectamos los datos del SQL
 if (!localStorage.getItem("misPrincesas")) {
     localStorage.setItem("misPrincesas", JSON.stringify(princesasIniciales));
 }
@@ -125,30 +122,41 @@ if (!localStorage.getItem("misPrincesas")) {
 document.getElementById("formPrincesa").addEventListener("submit", function(e) {
     e.preventDefault();
     
-    let listaActual = JSON.parse(localStorage.getItem("misPrincesas"));
+    const archivoImagen = document.getElementById("inputImagen").files[0];
     
-    // Generar nuevo ID dinámico
-    let nuevoId = listaActual.length > 0 ? Math.max(...listaActual.map(p => p.id)) + 1 : 1;
-    
-    const nuevaPrincesa = {
-        id: nuevoId,
-        nombrereal: document.getElementById("nombrereal").value,
-        personaje: document.getElementById("personaje").value,
-        altura: document.getElementById("altura").value,
-        peso: document.getElementById("peso").value,
-        poderes: document.getElementById("poderes").value,
-        sexo: document.getElementById("sexo").value,
-        debilidad: document.getElementById("debilidad").value,
-        creaton: document.getElementById("creaton").value,
-        biografia: document.getElementById("biografia").value,
-        imagen: document.getElementById("imagen").value || "blanca.jpg"
-    };
-    
-    listaActual.push(nuevaPrincesa);
-    localStorage.setItem("misPrincesas", JSON.stringify(listaActual));
-    
-    alert("¡Princesa guardada exitosamente en el navegador!");
-    document.getElementById("formPrincesa").reset();
+    if (archivoImagen) {
+        const lector = new FileReader();
+        
+        // El lector convierte la imagen a una cadena de texto Base64
+        lector.onloadend = function() {
+            const imagenCodificada = lector.result; 
+            
+            let listaActual = JSON.parse(localStorage.getItem("misPrincesas"));
+            let nuevoId = listaActual.length > 0 ? Math.max(...listaActual.map(p => p.id)) + 1 : 1;
+            
+            const nuevaPrincesa = {
+                id: nuevoId,
+                nombrereal: document.getElementById("nombrereal").value,
+                personaje: document.getElementById("personaje").value,
+                altura: document.getElementById("altura").value,
+                peso: document.getElementById("peso").value,
+                poderes: document.getElementById("poderes").value,
+                sexo: document.getElementById("sexo").value,
+                debilidad: document.getElementById("debilidad").value,
+                creaton: document.getElementById("creaton").value,
+                biografia: document.getElementById("biografia").value,
+                imagen: imagenCodificada // Guarda el archivo codificado en la memoria
+            };
+            
+            listaActual.push(nuevaPrincesa);
+            localStorage.setItem("misPrincesas", JSON.stringify(listaActual));
+            
+            alert("¡Princesa y archivo de imagen guardados con éxito!");
+            document.getElementById("formPrincesa").reset();
+        };
+        
+        lector.readAsDataURL(archivoImagen);
+    }
 });
 </script>
 </body>
