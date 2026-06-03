@@ -3,81 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meter Datos</title>
+    <title>Registrar Princesa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: Arial, Helvetica, sans-serif;
             background-image: url("aurora.png");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-size: cover; background-position: center; background-attachment: fixed;
             color: white;
         }
-        :root {
-            --color-de-lertras: #ffffff; 
-            --color-barra: #000000d6;      
-        }
-        .navbar-custom {
-            background-color: var(--color-barra) !important;
-        }
-        .navbar-custom .navbar-brand, .navbar-custom .nav-link {
-            color: var(--color-de-lertras) !important;
-        }
-        .dropdown-menu {
-            background-color: rgba(0, 0, 0, 0.9);
-            border: 1px solid #b6097f;
-        }
+        :root { --color-barra: #000000d6; }
+        .navbar-custom { background-color: var(--color-barra) !important; }
+        .navbar-custom .nav-link, .navbar-custom .navbar-brand { color: white !important; }
+        .dropdown-menu { background-color: rgba(0, 0, 0, 0.9); border: 1px solid #b6097f; }
         .dropdown-item { color: #ffffff !important; }
         .dropdown-item:hover { background-color: #b6097f !important; }
         
         .form-container {
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(5px);
-            border: 2px solid #b6097f;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-            box-shadow: 0px 0px 15px black;
+            background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px);
+            border: 2px solid #b6097f; border-radius: 15px; padding: 30px; margin-top: 30px;
         }
-        .btn-custom {
-            background-color: #b6097f;
-            color: white;
-            font-weight: bold;
-            border: none;
-        }
-        .btn-custom:hover {
-            background-color: #8c0561;
-            color: white;
-        }
-        label {
-            font-weight: bold;
-            color: #b6097f;
-        }
-        .form-control, .form-select {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid #b6097f;
-        }
-        .form-control:focus, .form-select:focus {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            border-color: #ff00b3;
-            box-shadow: 0 0 8px rgba(182, 9, 127, 0.6);
-        }
+        .btn-custom { background-color: #b6097f; color: white; font-weight: bold; border: none; }
+        .btn-custom:hover { background-color: #8c0561; color: white; }
+        label { font-weight: bold; color: #b6097f; margin-top: 10px; }
+        .form-control, .form-select { background-color: rgba(255, 255, 255, 0.1); color: white; border: 1px solid #b6097f; }
+        .form-control:focus, .form-select:focus { background-color: rgba(0, 0, 0, 0.8); color: white; border-color: #ff00b3; box-shadow: 0 0 8px rgba(182, 9, 127, 0.6); }
     </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
-        <a class="navbar-brand" href="index1.html" style="font-family: 'Times New Roman', Times, serif">Home</a>
-        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <a class="navbar-brand" href="index1.html">Home</a>
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Unidad 1</a>
@@ -86,156 +45,110 @@
                         <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Unidad 2</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="relaciones01.html">Relación 1</a></li>
-                        <li><a class="dropdown-item" href="relaciones02.html">Relación 2</a></li>
-                        <li><a class="dropdown-item" href="capturadatosrelaconados.html">Relaciones de datos</a></li>
-                        <li><a class="dropdown-item" href="xmen.html">Registrar Personajes</a></li>
-                        <li><a class="dropdown-item" href="tarjetas.html">Galeria Personajes</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Unidad 3</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="peliculas.html">Películas</a></li>
-                        <li><a class="dropdown-item" href="pokedex.html">Pokedex</a></li>
-                        <li><a class="dropdown-item" href="index.html">VELVET SOUND • Music Catalog</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<div class="container">
+<div class="container mb-5">
     <div class="row justify-content-center">
         <div class="col-md-8 form-container">
-            <h2 class="text-center mb-4" style="text-shadow: 2px 2px 5px black;">Registrar Nuevo Personaje</h2>
-            
-            <form id="formularioPersonaje">
-                <div class="row g-3">
+            <h2 class="text-center mb-4">Registrar Nueva Princesa / Personaje</h2>
+            <form id="formPrincesa">
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="personaje" class="form-label">Nombre del Personaje</label>
-                        <input type="text" class="form-control" id="personaje" required placeholder="Ej. Batman">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="nombrereal" class="form-label">Nombre Real</label>
-                        <input type="text" class="form-control" id="nombrereal" required placeholder="Ej. Bruce Wayne">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="altura" class="form-label">Altura</label>
-                        <input type="text" class="form-control" id="altura" placeholder="Ej. 1.88 m">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="peso" class="form-label">Peso</label>
-                        <input type="text" class="form-control" id="peso" placeholder="Ej. 95 kg">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="sexo" class="form-label">Sexo</label>
-                        <select class="form-select" id="sexo">
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                            <option value="Otro">Otro</option>
-                        </select>
+                        <label for="personaje">Nombre de Princesa / Personaje</label>
+                        <input type="text" class="form-control" id="personaje" required placeholder="Ej. Bella Durmiente">
                     </div>
                     <div class="col-md-6">
-                        <label for="poderes" class="form-label">Poderes / Habilidades</label>
-                        <input type="text" class="form-control" id="poderes" placeholder="Ej. Intelecto genio, combate">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="debilidad" class="form-label">Debilidad</label>
-                        <input type="text" class="form-control" id="debilidad" placeholder="Ej. Recordar a sus padres">
+                        <label for="nombrereal">Nombre Real</label>
+                        <input type="text" class="form-control" id="nombrereal" required placeholder="Ej. Aurora">
                     </div>
                     <div class="col-md-4">
-                        <label for="creacion" class="form-label">Año de Creación</label>
-                        <input type="text" class="form-control" id="creacion" placeholder="Ej. 1939">
+                        <label for="altura">Altura (cm)</label>
+                        <input type="number" class="form-control" id="altura" required placeholder="Ej. 168">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="peso">Peso (kg)</label>
+                        <input type="number" class="form-control" id="peso" required placeholder="Ej. 55">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="sexo">Sexo</label>
+                        <input type="text" class="form-control" id="sexo" required placeholder="Ej. Femenino">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="poderes">Poderes / Virtudes</label>
+                        <input type="text" class="form-control" id="poderes" required placeholder="Ej. Gracia y encanto">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="debilidad">Debilidad</label>
+                        <input type="text" class="form-control" id="debilidad" required placeholder="Ej. Maldición del sueño">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="creaton">Fecha de Creación</label>
+                        <input type="date" class="form-control" id="creaton" required>
                     </div>
                     <div class="col-md-8">
-                        <label for="imagen" class="form-label">Ruta de la Imagen / URL</label>
-                        <input type="text" class="form-control" id="imagen" placeholder="Ej. imagenes/batman.jpg">
+                        <label for="imagen">Nombre de la Imagen (de tu carpeta)</label>
+                        <input type="text" class="form-control" id="imagen" placeholder="Ej. aurora1.jpg">
                     </div>
                     <div class="col-12">
-                        <label for="biografia" class="form-label">Biografía corta</label>
-                        <textarea class="form-control" id="biografia" rows="3" placeholder="Breve historia del personaje..."></textarea>
+                        <label for="biografia">Biografía / Historia</label>
+                        <textarea class="form-control" id="biografia" rows="3" required placeholder="Escribe la historia aquí..."></textarea>
                     </div>
                     <div class="col-12 text-center mt-4">
-                        <button type="submit" class="btn btn-custom px-5 py-2">Guardar Personaje</button>
+                        <button type="submit" class="btn btn-custom px-5">Guardar Princesa</button>
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-// Arreglo de base por si el LocalStorage está totalmente vacío
-const personajesPorDefecto = [
-    {
-        id: 1,
-        nombrereal: "Tom Holland",
-        personaje: "Spider-Man",
-        altura: "1.73 m",
-        peso: "76 kg",
-        poderes: "Sentido arácnido",
-        sexo: "Masculino",
-        debilidad: "Sonidos fuertes",
-        creacion: "1962",
-        biografia: "Héroe de Marvel",
-        imagen: "imagenes/spiderman.jpg"
-    },
-    {
-        id: 2,
-        nombrereal: "Robert Downey Jr.",
-        personaje: "Iron Man",
-        altura: "1.74 m",
-        peso: "78 kg",
-        poderes: "Armadura tecnológica",
-        sexo: "Masculino",
-        debilidad: "Dependencia tecnológica",
-        creacion: "1963",
-        biografia: "Genio multimillonario",
-        imagen: "imagenes/iroman.webp"
-    }
+// Aquí extraemos exactamente los datos iniciales que tienes en tu archivo SQL
+const princesasIniciales = [
+    { id: 2, nombrereal: "Aurora", personaje: "Bella Durmiente", altura: 168, peso: 55, poderes: "Gracia y encanto", sexo: "Femenino", debilidad: "Maldición del sueño", creaton: "1959-01-29", biografia: "Princesa maldecida por un hada oscura a dormir profundamente hasta recibir el beso de amor verdadero.", imagen: "aurora1.jpg" },
+    { id: 3, nombrereal: "Cenicienta", personaje: "Cinderella", altura: 165, peso: 55, poderes: "Esperanza y resiliencia", sexo: "Femenino", debilidad: "Exceso de bondad", creaton: "1950-02-15", biografia: "Joven maltratada por su madrastra que, con ayuda mágica, asiste al baile real y cambia su destino.", imagen: "Cenicienta.jpg" },
+    { id: 5, nombrereal: "Ariel", personaje: "La Sirenita", altura: 165, peso: 55, poderes: "Respirar bajo el agua", sexo: "Femenino", debilidad: "Curiosidad extrema", creaton: "1989-11-17", biografia: "Sirena soñadora que anhela vivir en el mundo humano y desafía las reglas por amor y libertad.", imagen: "ariel.jpg" },
+    { id: 6, nombrereal: "Bella", personaje: "Belle", altura: 168, peso: 58, poderes: "Inteligencia y empatía", sexo: "Femenino", debilidad: "Sacrificio personal", creaton: "1991-11-22", biografia: "Joven amante de los libros que ve más allá de las apariencias y ayuda a romper un hechizo", imagen: "bella.jpg" },
+    { id: 7, nombrereal: "Mulan", personaje: "Fa Mulan", altura: 168, peso: 57, poderes: "Estrategia y combate", sexo: "Femenino", debilidad: "Presión social", creaton: "1998-06-19", biografia: "Joven valiente que se hace pasar por hombre para proteger a su padre y salvar a su nación.", imagen: "Mulan.jpg" },
+    { id: 35, nombrereal: "Elsa", personaje: "Reina de hielo", altura: 165, peso: 56, poderes: "Control del hielo y la nieve", sexo: "Femenino", debilidad: "Miedo a sus poderes", creaton: "2013-11-27", biografia: "Reina con poderes de hielo que aprende a aceptarse.", imagen: "Elsa.jpg" }
 ];
 
-// Al cargar el archivo, extraemos lo que ya esté guardado; si no hay nada, tomamos el arreglo base
-let datosGuardados = localStorage.getItem("misPersonajes");
-let personajes = datosGuardados ? JSON.parse(datosGuardados) : personajesPorDefecto;
+// Si el navegador no tiene guardado nada, le inyectamos los datos del SQL
+if (!localStorage.getItem("misPrincesas")) {
+    localStorage.setItem("misPrincesas", JSON.stringify(princesasIniciales));
+}
 
-// Escuchamos el evento de envío del formulario
-document.getElementById("formularioPersonaje").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita que la página se recargue automáticamente
-
-    // Construimos el nuevo objeto dinámico con los IDs de los inputs
-    const nuevoPersonaje = {
-        id: personajes.length + 1,
+document.getElementById("formPrincesa").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    let listaActual = JSON.parse(localStorage.getItem("misPrincesas"));
+    
+    // Generar nuevo ID dinámico
+    let nuevoId = listaActual.length > 0 ? Math.max(...listaActual.map(p => p.id)) + 1 : 1;
+    
+    const nuevaPrincesa = {
+        id: nuevoId,
         nombrereal: document.getElementById("nombrereal").value,
         personaje: document.getElementById("personaje").value,
-        altura: document.getElementById("altura").value || "N/A",
-        peso: document.getElementById("peso").value || "N/A",
-        poderes: document.getElementById("poderes").value || "Ninguno",
+        altura: document.getElementById("altura").value,
+        peso: document.getElementById("peso").value,
+        poderes: document.getElementById("poderes").value,
         sexo: document.getElementById("sexo").value,
-        debilidad: document.getElementById("debilidad").value || "Ninguna",
-        creacion: document.getElementById("creacion").value || "N/A",
-        biografia: document.getElementById("biografia").value || "Sin descripción.",
-        imagen: document.getElementById("imagen").value || "imagenes/spiderman.jpg" // Imagen por defecto si se deja vacío
+        debilidad: document.getElementById("debilidad").value,
+        creaton: document.getElementById("creaton").value,
+        biografia: document.getElementById("biografia").value,
+        imagen: document.getElementById("imagen").value || "blanca.jpg"
     };
-
-    // Agregamos el personaje nuevo al arreglo en memoria de esta página
-    personajes.push(nuevoPersonaje);
-
-    // 🔥 LA CLAVE DE TODO: Reescribimos la memoria compartida del navegador
-    localStorage.setItem("misPersonajes", JSON.stringify(personajes));
-
-    alert("¡Personaje guardado con éxito! Revisa la galería o las tablas.");
     
-    // Reseteamos visualmente los campos del formulario
-    document.getElementById("formularioPersonaje").reset();
+    listaActual.push(nuevaPrincesa);
+    localStorage.setItem("misPrincesas", JSON.stringify(listaActual));
+    
+    alert("¡Princesa guardada exitosamente en el navegador!");
+    document.getElementById("formPrincesa").reset();
 });
 </script>
 </body>
