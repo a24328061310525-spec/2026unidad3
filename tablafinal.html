@@ -1,161 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.cdnfonts.com/css/austin-3" rel="stylesheet">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-<title>Tabla Final</title>
-
-<style>
-
-:root{
-    --color-de-lertras:#ffffff;
-    --color-barra:#000000d6;
-}
-
-body{
-    margin:0;
-    padding:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background-image:url("aurora.png");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-    color:white;
-    text-align:center;
-}
-
-.navbar{
-    background:var(--color-barra);
-    border:none;
-    border-radius:0;
-}
-
-.navbar-brand,
-.navbar-nav > li > a{
-    color:white !important;
-}
-
-.dropdown-menu{
-    background:#1b1038;
-}
-
-.dropdown-menu > li > a{
-    color:white !important;
-}
-
-.dropdown-menu > li > a:hover{
-    background:#b6097f !important;
-    color:white !important;
-}
-
-h1{
-    margin-top:30px;
-    font-size:40px;
-    text-shadow:2px 2px 5px black;
-}
-
-table{
-    margin:auto;
-    border-collapse:collapse;
-    width:95%;
-    background-color:rgba(0,0,0,.85);
-    backdrop-filter:blur(5px);
-    box-shadow:0 0 15px black;
-}
-
-th{
-    background:#b6097f;
-    padding:10px;
-    text-align:center;
-}
-
-td{
-    padding:8px;
-    vertical-align: middle;
-}
-
-tr:nth-child(even){
-    background:rgba(255,255,255,.1);
-}
-
-tr:hover{
-    background:rgba(255,255,255,.3);
-    transition:.3s;
-}
-
-img{
-    width:100px;
-    border-radius:10px;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Final de Princesas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0; padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("aurora.png");
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: white; text-align: center;
+        }
+        :root { --color-barra: #000000d6; }
+        .navbar-custom { background-color: var(--color-barra) !important; }
+        .navbar-custom .nav-link, .navbar-custom .navbar-brand { color: white !important; }
+        .dropdown-menu { background-color: rgba(0, 0, 0, 0.9); border: 1px solid #b6097f; }
+        .dropdown-item { color: #ffffff !important; }
+        .dropdown-item:hover { background-color: #b6097f !important; }
+        
+        h1 { margin-top: 30px; font-size: 40px; text-shadow: 2px 2px 5px black; }
+        table { margin: 30px auto; border-collapse: collapse; width: 95%; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); box-shadow: 0px 0px 15px black; }
+        th { background-color: #b6097f; padding: 10px; color: white; }
+        td { padding: 8px; vertical-align: middle; }
+        tr:nth-child(even) { background-color: rgba(255,255,255,0.1); }
+        tr:hover { background-color: rgba(255,255,255,0.3); transition: 0.3s; }
+        td img { width: 70px; height: auto; border-radius: 8px; }
+    </style>
 </head>
-
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
-
-        <a class="navbar-brand" href="index1.html">
-            Home
-        </a>
-
+        <a class="navbar-brand" href="index1.html">Home</a>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Unidad 1 <span class="caret"></span>
-                    </a>
-
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Unidad 1</a>
                     <ul class="dropdown-menu">
-                        <li><a href="meterdatos.html">Meter Datos</a></li>
-                        <li><a href="tablafinal.html">Tabla Final</a></li>
+                        <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
+                        <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
                     </ul>
                 </li>
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Unidad 2 <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="relaciones01.html">Relación 1</a></li>
-                        <li><a href="relaciones02.html">Relación 2</a></li>
-                        <li><a href="capturadatosrelaconados.html">Relaciones de Datos</a></li>
-                        <li><a href="xmen.html">Registrar Personajes</a></li>
-                        <li><a href="tarjetas.html">Galería Personajes</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Unidad 3 <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="peliculas.html">Películas</a></li>
-                        <li><a href="pokedex.html">Pokedex</a></li>
-                        <li><a href="index.html">VELVET SOUND • Music Catalog</a></li>
-                    </ul>
-                </li>
-
             </ul>
         </div>
-
     </div>
 </nav>
 
-<h1>Tabla Final de Personajes</h1>
+<h1>Catálogo Final de Princesas</h1>
 
-<div style="overflow-x:auto; width:100%;">
+<div class="table-responsive px-4">
     <table>
         <thead>
             <tr>
@@ -172,79 +67,40 @@ img{
                 <th>Imagen</th>
             </tr>
         </thead>
-
-        <tbody id="tablaPersonajes"></tbody>
+        <tbody id="cuerpoTabla"></tbody>
     </table>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// 1. Definimos los dos personajes fijos por defecto
-const personajesPorDefecto = [
-    {
-        id: 1,
-        nombrereal: "Tom Holland",
-        personaje: "Spider-Man",
-        altura: "1.73 m",
-        peso: "76 kg",
-        poderes: "Sentido arácnido",
-        sexo: "Masculino",
-        debilidad: "Sonidos fuertes",
-        creaton: "1962",
-        biografia: "Héroe de Marvel",
-        imagen: "imagenes/spiderman.jpg"
-    },
-    {
-        id: 2,
-        nombrereal: "Robert Downey Jr.",
-        personaje: "Iron Man",
-        altura: "1.74 m",
-        peso: "78 kg",
-        poderes: "Armadura tecnológica",
-        sexo: "Masculino",
-        debilidad: "Dependencia tecnológica",
-        creaton: "1963",
-        biografia: "Genio multimillonario",
-        imagen: "imagenes/iroman.webp" // 👈 Sincronizado a .webp
-    }
-];
+// Cargamos las princesas guardadas
+const datos = localStorage.getItem("misPrincesas");
+const cuerpoTabla = document.getElementById("cuerpoTabla");
 
-// 2. Intentamos jalar los datos agregados desde la memoria del navegador
-const datosGuardados = localStorage.getItem("misPersonajes");
-const personajes = datosGuardados ? JSON.parse(datosGuardados) : personajesPorDefecto;
-
-const tabla = document.getElementById("tablaPersonajes");
-
-// Limpiamos contenido por seguridad antes de renderizar
-tabla.innerHTML = "";
-
-// 3. Pintamos las filas en la tabla
-personajes.forEach(personaje => {
-    // Si metiste datos en el formulario, aseguramos que se muestren las propiedades correctas
-    const altura = personaje.altura || "N/A";
-    const peso = personaje.peso || "N/A";
-    const poderes = personaje.poderes || "No especificado";
-    const sexo = personaje.sexo || "No especificado";
-    const debilidad = personaje.debilidad || "No especificada";
-    const creaton = personaje.creaton || personaje.creacion || "N/A";
-    const biografia = personaje.biografia || "Sin descripción.";
-
-    tabla.innerHTML += `
-    <tr>
-        <td>${personaje.id}</td>
-        <td>${personaje.nombrereal}</td>
-        <td>${personaje.personaje}</td>
-        <td>${altura}</td>
-        <td>${peso}</td>
-        <td>${poderes}</td>
-        <td>${sexo}</td>
-        <td>${debilidad}</td>
-        <td>${creaton}</td>
-        <td>${biografia}</td>
-        <td><img src="${personaje.imagen}" alt="${personaje.personaje}"></td>
-    </tr>
-    `;
-});
+if (datos) {
+    const listaPrincesas = JSON.parse(datos);
+    cuerpoTabla.innerHTML = "";
+    
+    listaPrincesas.forEach(p => {
+        cuerpoTabla.innerHTML += `
+        <tr>
+            <td><b>${p.id}</b></td>
+            <td>${p.nombrereal}</td>
+            <td>${p.personaje}</td>
+            <td>${p.altura} cm</td>
+            <td>${p.peso} kg</td>
+            <td>${p.poderes}</td>
+            <td>${p.sexo}</td>
+            <td>${p.debilidad}</td>
+            <td>${p.creaton}</td>
+            <td>${p.biografia}</td>
+            <td><img src="imagenes/${p.imagen}" alt="Princesa"></td>
+        </tr>
+        `;
+    });
+} else {
+    cuerpoTabla.innerHTML = `<tr><td colspan="11">Por favor, ve primero a Meter Datos para cargar el sistema.</td></tr>`;
+}
 </script>
-
 </body>
 </html>
