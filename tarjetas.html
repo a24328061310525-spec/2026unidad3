@@ -49,60 +49,55 @@
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
         <a class="navbar-brand" href="index1.html">Home</a>
-        <div class="collapse navbar-collapse">
+        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Unidad 1</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 1</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
                         <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
                         <li><a class="dropdown-item" href="tarjetas.html">Galería Personajes</a></li>
                     </ul>
                 </li>
-            </ul>
-             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Unidad 2 <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="relaciones01.html">Relación 1</a></li>
-                    <li><a href="relaciones02.html">Relación 2</a></li>
-                    <li><a href="relaciones_disney.html">Relaciones Disney</a></li>
-                    <li><a href="xmen.html">Registrar Personajes</a></li>
-                    <li><a href="tarjetas.html">Galería Personajes</a></li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Unidad 3 <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="peliculas.html">Películas</a></li>
-                    <li><a href="pokedex.html">Pokedex</a></li>
-                    <li><a href="index.html">VELVET SOUND • Music Catalog</a></li>
-                </ul>
-            </li>
-        </ul> 
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 2</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="relaciones01.html">Relación 1</a></li>
+                        <li><a class="dropdown-item" href="relaciones02.html">Relación 2</a></li>
+                        <li><a class="dropdown-item" href="relaciones_disney.html">Relaciones Disney</a></li>
+                        <li><a class="dropdown-item" href="xmen.html">Registrar Personajes</a></li>
+                        <li><a class="dropdown-item" href="tarjetas.html">Galería Personajes</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 3</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="peliculas.html">Películas</a></li>
+                        <li><a class="dropdown-item" href="pokedex.html">Pokedex</a></li>
+                        <li><a class="dropdown-item" href="index.html">VELVET SOUND • Music Catalog</a></li>
+                    </ul>
+                </li>
+            </ul> 
         </div>
     </div>
 </nav>
 
 <div class="container my-5">
     <h1 class="text-center mb-5" style="text-shadow: 2px 2px 5px black;">Galería de Princesas</h1>
-    <div class="row g-4" id="contenedorTarjetas">
-        </div>
+    <div class="row g-4" id="contenedorTarjetas"></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// LEER LA MEMORIA CORRECTA
 const datos = localStorage.getItem("misPrincesas");
 const contenedor = document.getElementById("contenedorTarjetas");
 
 if (datos) {
     const listaPrincesas = JSON.parse(datos);
-    contenedor.innerHTML = ""; // Limpiar el contenedor
+    contenedor.innerHTML = ""; 
 
     listaPrincesas.forEach(p => {
         contenedor.innerHTML += `
