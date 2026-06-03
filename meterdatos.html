@@ -6,29 +6,18 @@
     <title>Registrar Princesa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            margin: 0; padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-image: url("aurora.png");
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: white;
-        }
-        :root { --color-barra: #000000d6; }
-        .navbar-custom { background-color: var(--color-barra) !important; }
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; background-image: url("aurora.png"); background-size: cover; background-position: center; background-attachment: fixed; color: white; }
+        .navbar-custom { background-color: rgba(0, 0, 0, 0.85) !important; }
         .navbar-custom .nav-link, .navbar-custom .navbar-brand { color: white !important; }
         .dropdown-menu { background-color: rgba(0, 0, 0, 0.9); border: 1px solid #b6097f; }
         .dropdown-item { color: #ffffff !important; }
         .dropdown-item:hover { background-color: #b6097f !important; }
-        
-        .form-container {
-            background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px);
-            border: 2px solid #b6097f; border-radius: 15px; padding: 30px; margin-top: 30px;
-        }
+        .form-container { background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); border: 2px solid #b6097f; border-radius: 15px; padding: 30px; margin-top: 30px; }
         .btn-custom { background-color: #b6097f; color: white; font-weight: bold; border: none; }
         .btn-custom:hover { background-color: #8c0561; color: white; }
         label { font-weight: bold; color: #b6097f; margin-top: 10px; }
-        .form-control, .form-select { background-color: rgba(255, 255, 255, 0.1); color: white; border: 1px solid #b6097f; }
-        .form-control:focus, .form-select:focus { background-color: rgba(0, 0, 0, 0.8); color: white; border-color: #ff00b3; box-shadow: 0 0 8px rgba(182, 9, 127, 0.6); }
+        .form-control { background-color: rgba(255, 255, 255, 0.1); color: white; border: 1px solid #b6097f; }
+        .form-control:focus { background-color: rgba(0, 0, 0, 0.8); color: white; border-color: #ff00b3; box-shadow: 0 0 8px rgba(182, 9, 127, 0.6); }
     </style>
 </head>
 <body>
@@ -36,14 +25,36 @@
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
         <a class="navbar-brand" href="index1.html">Home</a>
-        <div class="collapse navbar-collapse">
+        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Unidad 1</a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Unidad 1</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
                         <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
                         <li><a class="dropdown-item" href="tarjetas.html">Galería Personajes</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Unidad 2</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="registro_actrices.html">Registrar Actrices</a></li>
+                        <li><a class="dropdown-item" href="tabla_actrices.html">Tabla Actrices</a></li>
+                        <li><a class="dropdown-item" href="registro_peliculas.html">Registrar Películas</a></li>
+                        <li><a class="dropdown-item" href="tabla_peliculas.html">Tabla Películas</a></li>
+                        <li><a class="dropdown-item" href="relaciones01.html">Relación 1</a></li>
+                        <li><a class="dropdown-item" href="relaciones02.html">Relación 2</a></li>
+                        <li><a class="dropdown-item" href="relaciones_disney.html">Relaciones Disney</a></li>
+                        <li><a class="dropdown-item" href="xmen.html">Registrar Personajes</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Unidad 3</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="peliculas.html">Películas</a></li>
+                        <li><a class="dropdown-item" href="pokedex.html">Pokedex</a></li>
+                        <li><a class="dropdown-item" href="index.html">VELVET SOUND • Music Catalog</a></li>
                     </ul>
                 </li>
             </ul>
@@ -54,52 +65,20 @@
 <div class="container mb-5">
     <div class="row justify-content-center">
         <div class="col-md-8 form-container">
-            <h2 class="text-center mb-4">Registrar Nueva Princesa / Personaje</h2>
+            <h2 class="text-center mb-4">Registrar Nueva Princesa</h2>
             <form id="formPrincesa">
                 <div class="row">
-                    <div class="col-md-6">
-                        <label for="personaje">Nombre de Princesa / Personaje</label>
-                        <input type="text" class="form-control" id="personaje" required placeholder="Ej. Bella Durmiente">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="nombrereal">Nombre Real</label>
-                        <input type="text" class="form-control" id="nombrereal" required placeholder="Ej. Aurora">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="altura">Altura (cm)</label>
-                        <input type="number" class="form-control" id="altura" required placeholder="Ej. 168">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="peso">Peso (kg)</label>
-                        <input type="number" class="form-control" id="peso" required placeholder="Ej. 55">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="sexo">Sexo</label>
-                        <input type="text" class="form-control" id="sexo" required placeholder="Ej. Femenino">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="poderes">Poderes / Virtudes</label>
-                        <input type="text" class="form-control" id="poderes" required placeholder="Ej. Gracia y encanto">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="debilidad">Debilidad</label>
-                        <input type="text" class="form-control" id="debilidad" required placeholder="Ej. Maldición del sueño">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="creaton">Fecha de Creación</label>
-                        <input type="date" class="form-control" id="creaton" required>
-                    </div>
-                    <div class="col-md-8">
-                        <label for="inputImagen">Subir Foto de la Princesa</label>
-                        <input type="file" class="form-control" id="inputImagen" accept="image/*" required>
-                    </div>
-                    <div class="col-12">
-                        <label for="biografia">Biografía / Historia</label>
-                        <textarea class="form-control" id="biografia" rows="3" required placeholder="Escribe la historia aquí..."></textarea>
-                    </div>
-                    <div class="col-12 text-center mt-4">
-                        <button type="submit" class="btn btn-custom px-5">Guardar Princesa</button>
-                    </div>
+                    <div class="col-md-6"><label for="personaje">Personaje</label><input type="text" class="form-control" id="personaje" required></div>
+                    <div class="col-md-6"><label for="nombrereal">Nombre Real</label><input type="text" class="form-control" id="nombrereal" required></div>
+                    <div class="col-md-4"><label for="altura">Altura (cm)</label><input type="number" class="form-control" id="altura" required></div>
+                    <div class="col-md-4"><label for="peso">Peso (kg)</label><input type="number" class="form-control" id="peso" required></div>
+                    <div class="col-md-4"><label for="sexo">Sexo</label><input type="text" class="form-control" id="sexo" required value="Femenino"></div>
+                    <div class="col-md-6"><label for="poderes">Poderes</label><input type="text" class="form-control" id="poderes" required></div>
+                    <div class="col-md-6"><label for="debilidad">Debilidad</label><input type="text" class="form-control" id="debilidad" required></div>
+                    <div class="col-md-4"><label for="creaton">Creación</label><input type="date" class="form-control" id="creaton" required></div>
+                    <div class="col-md-8"><label for="inputImagen">Subir Foto</label><input type="file" class="form-control" id="inputImagen" accept="image/*" required></div>
+                    <div class="col-12"><label for="biografia">Biografía</label><textarea class="form-control" id="biografia" rows="3" required></textarea></div>
+                    <div class="col-12 text-center mt-4"><button type="submit" class="btn btn-custom px-5">Guardar Princesa</button></div>
                 </div>
             </form>
         </div>
@@ -108,33 +87,21 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Datos base de tu SQL
-const princesasIniciales = [
-    { id: 2, nombrereal: "Aurora", personaje: "Bella Durmiente", altura: 168, peso: 55, poderes: "Gracia y encanto", sexo: "Femenino", debilidad: "Maldición del sueño", creaton: "1959-01-29", biografia: "Princesa maldecida por un hada oscura a dormir profundamente hasta recibir el beso de amor verdadero.", imagen: "imagenes/aurora1.jpg" },
-    { id: 3, nombrereal: "Cenicienta", personaje: "Cinderella", altura: 165, peso: 55, poderes: "Esperanza y resiliencia", sexo: "Femenino", debilidad: "Exceso de bondad", creaton: "1950-02-15", biografia: "Joven maltratada por su madrastra que, con ayuda mágica, asiste al baile real y cambia su destino.", imagen: "imagenes/Cenicienta.jpg" },
-    { id: 5, nombrereal: "Ariel", personaje: "La Sirenita", altura: 165, peso: 55, poderes: "Respirar bajo el agua", sexo: "Femenino", debilidad: "Curiosidad extrema", creaton: "1989-11-17", biografia: "Sirena soñadora que anhela vivir en el mundo humano y desafía las reglas por amor y libertad.", imagen: "imagenes/ariel.jpg" }
+const iniciales = [
+    { id: 2, nombrereal: "Aurora", personaje: "Bella Durmiente", altura: 168, peso: 55, poderes: "Gracia", sexo: "Femenino", debilidad: "Malo", creaton: "1959-01-29", biografia: "Princesa.", imagen: "aurora1.jpg" },
+    { id: 3, nombrereal: "Cenicienta", personaje: "Cinderella", altura: 165, peso: 55, poderes: "Bondad", sexo: "Femenino", debilidad: "Ninguna", creaton: "1950-02-15", biografia: "Zapatito.", imagen: "Cenicienta.jpg" }
 ];
-
-if (!localStorage.getItem("misPrincesas")) {
-    localStorage.setItem("misPrincesas", JSON.stringify(princesasIniciales));
-}
+if (!localStorage.getItem("misPrincesas")) localStorage.setItem("misPrincesas", JSON.stringify(iniciales));
 
 document.getElementById("formPrincesa").addEventListener("submit", function(e) {
     e.preventDefault();
-    
-    const archivoImagen = document.getElementById("inputImagen").files[0];
-    
-    if (archivoImagen) {
-        const lector = new FileReader();
-        
-        // El lector convierte la imagen a una cadena de texto Base64
-        lector.onloadend = function() {
-            const imagenCodificada = lector.result; 
-            
-            let listaActual = JSON.parse(localStorage.getItem("misPrincesas"));
-            let nuevoId = listaActual.length > 0 ? Math.max(...listaActual.map(p => p.id)) + 1 : 1;
-            
-            const nuevaPrincesa = {
+    const file = document.getElementById("inputImagen").files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onloadend = function() {
+            let lista = JSON.parse(localStorage.getItem("misPrincesas")) || [];
+            let nuevoId = lista.length > 0 ? Math.max(...lista.map(p => p.id)) + 1 : 1;
+            lista.push({
                 id: nuevoId,
                 nombrereal: document.getElementById("nombrereal").value,
                 personaje: document.getElementById("personaje").value,
@@ -145,17 +112,13 @@ document.getElementById("formPrincesa").addEventListener("submit", function(e) {
                 debilidad: document.getElementById("debilidad").value,
                 creaton: document.getElementById("creaton").value,
                 biografia: document.getElementById("biografia").value,
-                imagen: imagenCodificada // Guarda el archivo codificado en la memoria
-            };
-            
-            listaActual.push(nuevaPrincesa);
-            localStorage.setItem("misPrincesas", JSON.stringify(listaActual));
-            
-            alert("¡Princesa y archivo de imagen guardados con éxito!");
+                imagen: reader.result
+            });
+            localStorage.setItem("misPrincesas", JSON.stringify(lista));
+            alert("¡Princesa Guardada!");
             document.getElementById("formPrincesa").reset();
         };
-        
-        lector.readAsDataURL(archivoImagen);
+        reader.readAsDataURL(file);
     }
 });
 </script>
