@@ -251,37 +251,80 @@ document.getElementById("formPersonaje").addEventListener("submit", function(e){
 
 e.preventDefault();
 
-const personaje = {
+const archivo = document.getElementById("imagen").files[0];
 
-nombre_personaje: document.getElementById("nombre").value,
-nombre_serie: document.getElementById("serie").value,
-actriz: document.getElementById("nombrereal").value,
-habilidad_destacada: document.getElementById("poderes").value,
-altura: document.getElementById("altura").value,
-ocupacion: document.getElementById("ocupacion").value,
-bio: document.getElementById("bio").value,
-foto_perfil: "https://via.placeholder.com/300x250?text=Personaje"
+if(archivo){
 
-};
+    const lector = new FileReader();
 
-let personajes =
-JSON.parse(localStorage.getItem("personajes")) || [];
+    lector.onload = function(evento){
 
-personajes.push(personaje);
+        const personaje = {
 
-localStorage.setItem(
-"personajes",
-JSON.stringify(personajes)
-);
+            nombre_personaje: document.getElementById("nombre").value,
+            nombre_serie: document.getElementById("serie").value,
+            actriz: document.getElementById("nombrereal").value,
+            habilidad_destacada: document.getElementById("poderes").value,
+            altura: document.getElementById("altura").value,
+            ocupacion: document.getElementById("ocupacion").value,
+            bio: document.getElementById("bio").value,
+            foto_perfil: evento.target.result
 
-document.getElementById("mensaje").innerHTML =
-"✅ Personaje guardado correctamente";
+        };
 
-this.reset();
+        let personajes =
+        JSON.parse(localStorage.getItem("personajes")) || [];
+
+        personajes.push(personaje);
+
+        localStorage.setItem(
+        "personajes",
+        JSON.stringify(personajes)
+        );
+
+        document.getElementById("mensaje").innerHTML =
+        "✅ Personaje guardado correctamente";
+
+        document.getElementById("formPersonaje").reset();
+
+    };
+
+    lector.readAsDataURL(archivo);
+
+}else{
+
+    const personaje = {
+
+        nombre_personaje: document.getElementById("nombre").value,
+        nombre_serie: document.getElementById("serie").value,
+        actriz: document.getElementById("nombrereal").value,
+        habilidad_destacada: document.getElementById("poderes").value,
+        altura: document.getElementById("altura").value,
+        ocupacion: document.getElementById("ocupacion").value,
+        bio: document.getElementById("bio").value,
+        foto_perfil: "https://via.placeholder.com/300x250?text=Personaje"
+
+    };
+
+    let personajes =
+    JSON.parse(localStorage.getItem("personajes")) || [];
+
+    personajes.push(personaje);
+
+    localStorage.setItem(
+    "personajes",
+    JSON.stringify(personajes)
+    );
+
+    document.getElementById("mensaje").innerHTML =
+    "✅ Personaje guardado correctamente";
+
+    document.getElementById("formPersonaje").reset();
+
+}
 
 });
 
 </script>
-
 </body>
 </html>
