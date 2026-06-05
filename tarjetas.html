@@ -99,12 +99,17 @@ if(datos){
 
     const personajes = JSON.parse(datos);
 
-    personajes.reverse().forEach(p => {
+    personajes.forEach(p => {
 
         contenedor.innerHTML += `
+
         <div class="col-md-4 mb-4">
 
             <div class="card card-custom h-100">
+
+                <img src="${p.foto_perfil}"
+                     class="card-img-top"
+                     alt="${p.nombre_personaje}">
 
                 <div class="card-body">
 
@@ -112,36 +117,50 @@ if(datos){
                         ${p.nombre_personaje}
                     </h3>
 
-                    <hr>
+                    <p>
+                        <strong>Serie:</strong>
+                        ${p.nombre_serie}
+                    </p>
 
-                    <p><b>Serie:</b> ${p.nombre_serie}</p>
+                    <p>
+                        <strong>Actriz:</strong>
+                        ${p.actriz}
+                    </p>
 
-                    <p><b>Actriz:</b> ${p.actriz}</p>
+                    <p>
+                        <strong>Habilidad:</strong>
+                        ${p.habilidad_destacada}
+                    </p>
 
-                    <p><b>Habilidad:</b> ${p.habilidad_destacada}</p>
+                    <p>
+                        <strong>Altura:</strong>
+                        ${p.altura}
+                    </p>
 
-                    <p><b>Altura:</b> ${p.altura}</p>
+                    <p>
+                        <strong>Ocupación:</strong>
+                        ${p.ocupacion}
+                    </p>
 
-                    <p><b>Ocupación:</b> ${p.ocupacion}</p>
-
-                    <p>${p.bio}</p>
+                    <p>
+                        <strong>Biografía:</strong><br>
+                        ${p.bio}
+                    </p>
 
                 </div>
 
             </div>
 
         </div>
+
         `;
 
     });
 
 }else{
 
-    contenedor.innerHTML = `
-    <h3 class="text-center">
-        No hay personajes registrados
-    </h3>
-    `;
+    contenedor.innerHTML =
+    "<h3 class='text-center'>No hay personajes registrados</h3>";
 
 }
 
