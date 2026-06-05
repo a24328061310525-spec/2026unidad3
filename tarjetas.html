@@ -90,7 +90,6 @@
     <h1 class="text-center mb-5" style="text-shadow: 2px 2px 5px black;">Galería de Personajes </h1>
     <div class="row g-4" id="contenedorTarjetas"></div>
 </div>
-
 <script>
 
 const datos = localStorage.getItem("personajes");
@@ -100,17 +99,12 @@ if(datos){
 
     const personajes = JSON.parse(datos);
 
-    personajes.forEach(p => {
+    personajes.reverse().forEach(p => {
 
         contenedor.innerHTML += `
         <div class="col-md-4 mb-4">
 
             <div class="card card-custom h-100">
-
-                <img
-                src="${p.foto_perfil}"
-                class="card-img-top"
-                onerror="this.src='https://via.placeholder.com/300x250?text=Sin+Foto';">
 
                 <div class="card-body">
 
