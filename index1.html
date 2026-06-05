@@ -85,7 +85,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
               <li><a class="dropdown-item" href="peliculas.html">Películas</a></li>
               <li><a class="dropdown-item" href="pokedex.html">Pokedex</a></li>
-              <li><a class="dropdown-item" href="index.html">VELVET SOUND • Book Catalog</a></li>
+              <li><a class="dropdown-item" href="index.html">VELVET SOUND • Music Catalog</a></li>
             </ul>
           </li>
 
@@ -97,48 +97,47 @@
   <section class="hero">
     <div class="hero-left">
       <div class="logo">
-        ✨ VELVET LIBRARIES
+        ✨ VELVET SOUND
       </div>
 
       <span class="tag">
-        CATÁLOGO LITERARIO INTERACTIVO
+        CATÁLOGO MUSICAL INTERACTIVO
       </span>
 
       <h1>
         Explore <br>
-        Books <br>
-        Universe 📚
+        Artists <br>
+        Universe 🎧
       </h1>
 
       <p>
-        Busca cualquier obra o autor y descubre 
-        portadas reales, años de publicación, editoriales
-        y datos interesantes en tiempo real.
+        Busca cualquier cantante y descubre biografías, 
+        géneros musicales y portadas en alta definición de Apple Music.
       </p>
 
       <div class="search-box">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" placeholder="Ejemplo: Harry Potter">
+        <input type="text" id="searchInput" placeholder="Ejemplo: Taylor Swift">
         <button id="searchBtn">Buscar</button>
       </div>
     </div>
 
     <div class="hero-right">
       <div class="floating-card card1">
-        📖 Trending Books
+        🎵 HQ Covers
       </div>
       <div class="floating-card card2">
         ✨ Live Search
       </div>
       <div class="floating-card card3">
-        🌎 Open Library API
+        🌎 Apple & LastFM API
       </div>
     </div>
   </section>
 
   <section class="results-section">
     <div class="section-title">
-      Resultados de Búsqueda 🔥
+      Resultados 🔥
     </div>
     <div class="artists-grid" id="artistsGrid"></div>
   </section>
@@ -155,11 +154,11 @@
         <p id="modalBio"></p>
         <div class="stats">
           <div class="stat-box">
-            <span>📅 Año de publicación</span>
+            <span>💿 Álbum Destacado</span>
             <h3 id="modalCountry"></h3>
           </div>
           <div class="stat-box">
-            <span>📄 Páginas aprox.</span>
+            <span>💵 Precio iTunes</span>
             <h3 id="modalStyle"></h3>
           </div>
         </div>
@@ -175,54 +174,68 @@ const artistsGrid = document.getElementById("artistsGrid");
 const modal = document.getElementById("modal");
 const closeBtn = document.getElementById("closeBtn");
 
-searchBtn.addEventListener("click", buscarLibro);
+searchBtn.addEventListener("click", buscarArtista);
 
 searchInput.addEventListener("keypress", function(e){
     if(e.key === "Enter"){
-        buscarLibro();
+        buscarArtista();
     }
 });
 
-async function buscarLibro(){
-    const libroQuery = searchInput.value.trim();
+async function buscarArtista(){
+    const artista = searchInput.value.trim();
 
-    if(libroQuery === ""){
-        alert("Escribe el nombre de un libro o autor");
+    if(artista === ""){
+        alert("Escribe el nombre de un cantante");
         return;
     }
 
-    artistsGrid.innerHTML = "<h3>Buscando libros en los archivos...</h3>";
+    artistsGrid.innerHTML = "<h3>Buscando artista y portadas HD...</h3>";
 
     try {
-        // Consultamos la API de Open Library por título
-        const respuesta = await fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(libroQuery)}&limit=12`);
-        const datos = await respuesta.json();
+        // 1. Buscamos en Apple iTunes API para obtener el nombre oficial, género e imágenes reales de alta resolución
+        const urlApple = `https://itunes.apple.com/search?term=${encodeURIComponent(artista)}&entity=album&limit=6`;
+        const respuestaApple = await fetch(urlApple);
+        const datosApple = await respuestaApple.json();
 
         artistsGrid.innerHTML = "";
 
-        if(!datos.docs || datos.docs.length === 0){
+        if (!datosApple.results || datosApple.results.length === 0) {
             artistsGrid.innerHTML = `
             <div class="text-center w-100">
-                <h3>No se encontraron libros con ese nombre</h3>
+                <h3>No se encontraron resultados oficiales en Apple Music.</h3>
             </div>`;
             return;
         }
 
-        datos.docs.forEach(b => {
-            // Conseguimos la portada real. Si el libro no tiene ID de portada, usamos una imagen por defecto muy bonita.
-            const imagen = b.cover_i 
-                ? `https://covers.openlibrary.org/b/id/${b.cover_i}-L.jpg`
-                : "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400&q=80";
+        // Agrupamos por artista para no repetir el mismo cantante si salen varios álbumes
+        const yaAgregados = new Set();
 
-            const titulo = b.title || "Título Desconocido";
-            const autor = b.author_name ? b.author_name.join(", ") : "Autor Desconocido";
-            const anio = b.first_publish_year || "N/A";
-            const paginas = b.number_of_pages_median || "Desconocido";
-            const editor = b.publisher ? b.publisher[0] : "No especificado";
+        for (const item of datosApple.results) {
+            const nombreArtista = item.artistName;
 
-            // Creamos un texto alternativo a modo de pequeña descripción/sinopsis rápida
-            const resumen = `Este libro titulado "${titulo}" fue escrito por ${autor}. Cuenta con múltiples registros internacionales y ha sido editado por empresas como ${editor}.`;
+            if (yaAgregados.has(nombreArtista.toLowerCase())) continue;
+            yaAgregados.add(nombreArtista.toLowerCase());
 
+            // Convertimos la miniatura de Apple a una imagen gigante de alta calidad (600x600 px)
+            const imagenHD = item.artworkUrl100.replace("100x100bb.jpg", "600x600bb.jpg");
+            const genero = item.primaryGenreName || "Música";
+            const albumTop = item.collectionName || "Álbum no especificado";
+            const precio = item.collectionPrice ? `$${item.collectionPrice} USD` : "N/A";
+
+            // 2. Buscamos la biografía en Last.fm de fondo usando una Key pública global para complementar
+            let biografia = "Biografía cargando desde los servidores centrales o no disponible para este artista de Apple Music.";
+            try {
+                const resBio = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${encodeURIComponent(nombreArtista)}&api_key=b25b959554ed76058ac220b7b2e0a026&format=json&lang=es`);
+                const datosBio = await resBio.json();
+                if (datosBio.artist && datosBio.artist.bio && datosBio.artist.bio.summary) {
+                    biografia = datosBio.artist.bio.summary.replace(/<[^>]*>/g, '').split("Read more on Last.fm")[0];
+                }
+            } catch (e) {
+                console.log("No se pudo extraer la biografía de LastFM, usando texto predeterminado.");
+            }
+
+            // Renderizado en tu Grid impecable
             artistsGrid.innerHTML += `
             <div class="artist-card" style="
                 background: rgba(255,255,255,.08);
@@ -235,47 +248,46 @@ async function buscarLibro(){
                 vertical-align: top;
                 border: 1px solid rgba(255,255,255,0.1);
             ">
-                <img src="${imagen}"
-                     style="width: 100%; height: 350px; object-fit: cover;">
+                <img src="${imagenHD}" 
+                     style="width: 100%; height: 260px; object-fit: cover;">
 
                 <div style="padding: 20px">
-                    <h3 style="color: #fff; font-size: 1.3rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${titulo}</h3>
-                    <p style="color: #b3b3b3; font-size: 0.9rem; margin-bottom: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        <i class="fa-solid fa-pen-nib" style="margin-right: 5px;"></i> ${autor}
+                    <h3 style="color: #fff; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${nombreArtista}</h3>
+                    <p style="color: #b3b3b3; font-size: 0.9rem; margin-bottom: 15px;">
+                        <i class="fa-solid fa-compact-disc" style="margin-right: 5px;"></i> ${genero}
                     </p>
 
-                    <button
-                        class="btn btn-primary w-100" style="border-radius: 10px; font-weight: 600;"
+                    <button class="btn btn-primary w-100" style="border-radius: 10px; font-weight: 600;"
                         onclick="abrirModal(
-                        '${titulo.replace(/'/g, "\\'")}',
-                        '${imagen}',
-                        'Autor: ${autor.replace(/'/g, "\\'")}',
-                        '${anio}',
-                        '${paginas}',
-                        '${resumen.replace(/'/g, "\\'")}'
+                        '${nombreArtista.replace(/'/g, "\\'")}',
+                        '${imagenHD}',
+                        '${genero.replace(/'/g, "\\'")}',
+                        '${albumTop.replace(/'/g, "\\'")}',
+                        '${precio}',
+                        '${biografia.replace(/'/g, "\\'").replace(/\n/g, " ")}'
                         )">
-                        Detalles del Libro
+                        Ver Información
                     </button>
                 </div>
             </div>`;
-        });
+        }
 
     } catch(error) {
         console.error(error);
         artistsGrid.innerHTML = `
         <div class="text-center w-100">
-            <h3>Error al conectar con la biblioteca digital</h3>
+            <h3>Error al conectar con los servidores de Apple Music</h3>
         </div>`;
     }
 }
 
-function abrirModal(titulo, imagen, autor, anio, paginas, resumen){
-    document.getElementById("modalName").innerText = titulo;
+function abrirModal(nombre, imagen, genero, album, precio, bio){
+    document.getElementById("modalName").innerText = nombre;
     document.getElementById("modalImage").src = imagen;
-    document.getElementById("modalGenre").innerText = autor;
-    document.getElementById("modalCountry").innerText = anio;
-    document.getElementById("modalStyle").innerText = paginas;
-    document.getElementById("modalBio").innerText = resumen;
+    document.getElementById("modalGenre").innerText = genero;
+    document.getElementById("modalCountry").innerText = album; 
+    document.getElementById("modalStyle").innerText = precio; 
+    document.getElementById("modalBio").innerText = bio;
 
     modal.style.display = "flex";
 }
