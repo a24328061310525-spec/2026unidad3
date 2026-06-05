@@ -320,6 +320,9 @@ if(archivo){
     "✅ Personaje guardado correctamente";
 
     document.getElementById("formPersonaje").reset();
+    <button type="button" class="btn btn-danger" onclick="localStorage.removeItem('personajes'); location.reload();">
+Borrar todos los personajes
+</button>
 
 }
 
