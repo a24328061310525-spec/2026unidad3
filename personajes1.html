@@ -1,1 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alisson Sarai Santiago Cruz</title>
 
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background-color: #1e1e2f;
+    color: white;
+    text-align: center;
+}
+
+h1{
+    margin-top: 20px;
+}
+
+table{
+    width: 95%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: rgba(0,0,0,0.8);
+}
+
+th{
+    background-color: #8e44ad;
+    color: white;
+    padding: 12px;
+}
+
+td{
+    padding: 10px;
+    border: 1px solid #444;
+}
+
+tr:nth-child(even){
+    background-color: rgba(255,255,255,0.1);
+}
+
+tr:hover{
+    background-color: rgba(255,255,255,0.2);
+}
+</style>
+
+</head>
+<body>
+
+<h1>Personajes de Cómics</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre Real</th>
+            <th>Personaje</th>
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>Poderes</th>
+            <th>Sexo</th>
+            <th>Debilidad</th>
+            <th>Creación</th>
+            <th>Biografía</th>
+        </tr>
+    </thead>
+
+    <tbody id="tablaPersonajes"></tbody>
+</table>
+
+<script>
+
+const personajes = [
+
+{
+id:1,
+nombre_real:"Clark Kent",
+personaje:"Superman",
+altura:"1.91 m",
+peso:"107 kg",
+poderes:"Vuelo, superfuerza, visión láser",
+sexo:"Masculino",
+debilidad:"Kriptonita",
+creacion:"1938",
+biografia:"Último sobreviviente de Krypton y protector de la Tierra"
+},
+
+{
+id:2,
+nombre_real:"Diana Prince",
+personaje:"Wonder Woman",
+altura:"1.83 m",
+peso:"75 kg",
+poderes:"Fuerza divina, lazo de la verdad",
+sexo:"Femenino",
+debilidad:"Magia poderosa",
+creacion:"1941",
+biografia:"Princesa amazona y guerrera legendaria"
+},
+
+{
+id:3,
+nombre_real:"Bruce Wayne",
+personaje:"Batman",
+altura:"1.88 m",
+peso:"95 kg",
+poderes:"Inteligencia, combate, tecnología",
+sexo:"Masculino",
+debilidad:"No posee poderes",
+creacion:"1939",
+biografia:"Multimillonario que combate el crimen en Gotham"
+},
+
+{
+id:4,
+nombre_real:"Barry Allen",
+personaje:"Flash",
+altura:"1.80 m",
+peso:"81 kg",
+poderes:"Supervelocidad",
+sexo:"Masculino",
+debilidad:"Frío extremo",
+creacion:"1956",
+biografia:"El hombre más rápido del mundo"
+},
+
+{
+id:5,
+nombre_real:"Arthur Curry",
+personaje:"Aquaman",
+altura:"1.85 m",
+peso:"100 kg",
+poderes:"Control marino, fuerza sobrehumana",
+sexo:"Masculino",
+debilidad:"Deshidratación prolongada",
+creacion:"1941",
+biografia:"Rey de Atlantis y protector de los océanos"
+},
+
+{
+id:6,
+nombre_real:"Natasha Romanoff",
+personaje:"Black Widow",
+altura:"1.70 m",
+peso:"59 kg",
+poderes:"Espionaje y combate",
+sexo:"Femenino",
+debilidad:"Limitaciones humanas",
+creacion:"1964",
+biografia:"Agente experta y miembro de los Vengadores"
+},
+
+{
+id:7,
+nombre_real:"Wanda Maximoff",
+personaje:"Scarlet Witch",
+altura:"1.68 m",
+peso:"58 kg",
+poderes:"Manipulación de la realidad",
+sexo:"Femenino",
+debilidad:"Inestabilidad emocional",
+creacion:"1964",
+biografia:"Una de las hechiceras más poderosas del universo"
+},
+
+{
+id:8,
+nombre_real:"T'Challa",
+personaje:"Black Panther",
+altura:"1.83 m",
+peso:"91 kg",
+poderes:"Fuerza aumentada y tecnología avanzada",
+sexo:"Masculino",
+debilidad:"Dependencia de la hierba corazón",
+creacion:"1966",
+biografia:"Rey de Wakanda y defensor de su nación"
+}
+
+];
+
+const tabla = document.getElementById("tablaPersonajes");
+
+personajes.forEach(personaje => {
+
+tabla.innerHTML += `
+<tr>
+<td>${personaje.id}</td>
+<td>${personaje.nombre_real}</td>
+<td>${personaje.personaje}</td>
+<td>${personaje.altura}</td>
+<td>${personaje.peso}</td>
+<td>${personaje.poderes}</td>
+<td>${personaje.sexo}</td>
+<td>${personaje.debilidad}</td>
+<td>${personaje.creacion}</td>
+<td>${personaje.biografia}</td>
+</tr>
+`;
+
+});
+
+</script>
+
+</body>
+</html>
