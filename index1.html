@@ -166,6 +166,8 @@
     </div>
   </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
@@ -193,7 +195,6 @@ async function buscarArtista(){
     artistsGrid.innerHTML = "<h3>Buscando artista y portadas HD...</h3>";
 
     try {
-        // 1. Buscamos en Apple iTunes API para obtener el nombre oficial, género e imágenes reales de alta resolución
         const urlApple = `https://itunes.apple.com/search?term=${encodeURIComponent(artista)}&entity=album&limit=6`;
         const respuestaApple = await fetch(urlApple);
         const datosApple = await respuestaApple.json();
@@ -208,7 +209,6 @@ async function buscarArtista(){
             return;
         }
 
-        // Agrupamos por artista para no repetir el mismo cantante si salen varios álbumes
         const yaAgregados = new Set();
 
         for (const item of datosApple.results) {
@@ -217,13 +217,11 @@ async function buscarArtista(){
             if (yaAgregados.has(nombreArtista.toLowerCase())) continue;
             yaAgregados.add(nombreArtista.toLowerCase());
 
-            // Convertimos la miniatura de Apple a una imagen gigante de alta calidad (600x600 px)
             const imagenHD = item.artworkUrl100.replace("100x100bb.jpg", "600x600bb.jpg");
             const genero = item.primaryGenreName || "Música";
             const albumTop = item.collectionName || "Álbum no especificado";
             const precio = item.collectionPrice ? `$${item.collectionPrice} USD` : "N/A";
 
-            // 2. Buscamos la biografía en Last.fm de fondo usando una Key pública global para complementar
             let biografia = "Biografía cargando desde los servidores centrales o no disponible para este artista de Apple Music.";
             try {
                 const resBio = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${encodeURIComponent(nombreArtista)}&api_key=b25b959554ed76058ac220b7b2e0a026&format=json&lang=es`);
@@ -232,10 +230,9 @@ async function buscarArtista(){
                     biografia = datosBio.artist.bio.summary.replace(/<[^>]*>/g, '').split("Read more on Last.fm")[0];
                 }
             } catch (e) {
-                console.log("No se pudo extraer la biografía de LastFM, usando texto predeterminado.");
+                console.log("No se pudo extraer la biografía de LastFM.");
             }
 
-            // Renderizado en tu Grid impecable
             artistsGrid.innerHTML += `
             <div class="artist-card" style="
                 background: rgba(255,255,255,.08);
