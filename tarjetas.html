@@ -1,95 +1,168 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> ALISSON SARAI SANTIAGO CRUZ  </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            margin: 0; padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-image: url("aurora.png");
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: white;
-        }
-        :root { --color-barra: #000000d6; }
-        .navbar-custom { background-color: var(--color-barra) !important; }
-        .navbar-custom .nav-link, .navbar-custom .navbar-brand { color: white !important; }
-        .dropdown-menu { background-color: rgba(0, 0, 0, 0.9); border: 1px solid #b6097f; }
-        .dropdown-item { color: #ffffff !important; }
-        .dropdown-item:hover { background-color: #b6097f !important; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .card-custom {
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(5px);
-            border: 2px solid #b6097f;
-            color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card-custom:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px #b6097f;
-        }
-        .card-img-top {
-            height: 250px;
-            object-fit: cover;
-        }
-        .text-accent {
-            color: #ff00b3;
-            font-weight: bold;
-        }
-    </style>
+<title>ALISSON SARAI SANTIAGO CRUZ</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background-image:url("aurora.png");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    color:white;
+}
+
+:root{
+    --color-barra:#000000d6;
+}
+
+.navbar-custom{
+    background-color:var(--color-barra)!important;
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand{
+    color:white!important;
+}
+
+.dropdown-menu{
+    background-color:rgba(0,0,0,0.9);
+    border:1px solid #b6097f;
+}
+
+.dropdown-item{
+    color:white!important;
+}
+
+.dropdown-item:hover{
+    background-color:#b6097f!important;
+}
+
+.navbar-toggler{
+    border:1px solid white;
+}
+
+.card-custom{
+    background-color:rgba(0,0,0,0.85);
+    backdrop-filter:blur(5px);
+    border:2px solid #b6097f;
+    color:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.5);
+    transition:0.3s;
+}
+
+.card-custom:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 25px #b6097f;
+}
+
+.card-img-top{
+    height:250px;
+    object-fit:cover;
+}
+
+.text-accent{
+    color:#ff00b3;
+    font-weight:bold;
+}
+
+</style>
 </head>
+
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
+
         <a class="navbar-brand" href="index1.html">Home</a>
-        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+        <button class="navbar-toggler navbar-dark" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 1</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-               <li><a class="dropdown-item" href="personajes1.html">Personajes 1</a></li>
-              <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
-              <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
 
-            </ul>
-                </li>
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav">
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 2</a>
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       role="button"
+                       data-bs-toggle="dropdown">
+                        Unidad 1
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="personajes1.html">Personajes 1</a></li>
+                        <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
+                        <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       role="button"
+                       data-bs-toggle="dropdown">
+                        Unidad 2
+                    </a>
+
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="relaciones01.html">Relación 1</a></li>
                         <li><a class="dropdown-item" href="relaciones02.html">Relación 2</a></li>
-                        <li><a class="dropdown-item" href="relaciones_disney.html">Relaciones Disney</a></li>
+                        <li><a class="dropdown-item" href="capturadatosrelaconados.html">Relaciones de Datos</a></li>
                         <li><a class="dropdown-item" href="xmen.html">Registrar Personajes</a></li>
                         <li><a class="dropdown-item" href="tarjetas.html">Galería Personajes</a></li>
                     </ul>
                 </li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Unidad 3</a>
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       role="button"
+                       data-bs-toggle="dropdown">
+                        Unidad 3
+                    </a>
+
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="peliculas.html">Películas</a></li>
                         <li><a class="dropdown-item" href="pokedex.html">Pokedex</a></li>
                         <li><a class="dropdown-item" href="index.html">VELVET SOUND • Music Catalog</a></li>
                     </ul>
                 </li>
-            </ul> 
+
+            </ul>
+
         </div>
+
     </div>
 </nav>
 
 <div class="container my-5">
-    <h1 class="text-center mb-5" style="text-shadow: 2px 2px 5px black;">Galería de Personajes </h1>
+
+    <h1 class="text-center mb-5">
+        Galería de Personajes
+    </h1>
+
     <div class="row g-4" id="contenedorTarjetas"></div>
+
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
 
 const contenedor = document.getElementById("contenedorTarjetas");
@@ -142,13 +215,18 @@ if(personajes.length > 0){
 }else{
 
     contenedor.innerHTML = `
+
     <div class="col-12 text-center">
+
         <h3>No hay personajes registrados</h3>
+
     </div>
+
     `;
 
 }
 
 </script>
+
 </body>
 </html>
