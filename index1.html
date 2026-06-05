@@ -1,172 +1,294 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALISSON SARAI SANTIAGO CRUZ</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> ALISSON SARAI SANTIAGO CRUZ </title>
 
-    <link href="https://fonts.cdnfonts.com/css/austin-3" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src="https://kit.fontawesome.com/a2d9d5a64f.js" crossorigin="anonymous"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 
-    <style>
-        :root{
-            --color-de-fondo:#4f4964;
-            --color-de-lertras:#fff7f7;
-            --color-barra:#000000d6;
-            --color-boton:#e4f7ff;
-            --color-extra:#110606;
-        }
-
-        body{
-            background-color:var(--color-de-fondo);
-            color:white;
-        }
-
-        h1{
-            font-family:'Austin', sans-serif;
-            color:var(--color-de-lertras);
-            text-align:center;
-        }
-
-        .navbar-nav > li > a,
-        .navbar-brand{
-            color:white !important;
-        }
-
-        .dropdown-menu{
-            background-color:#000;
-        }
-
-        .dropdown-menu li a{
-            color:white !important;
-        }
-
-        .dropdown-menu li a:hover{
-            background-color:#6a5acd !important;
-            color:white !important;
-        }
-
-        .jumbotron{
-            background-color:var(--color-de-fondo) !important;
-            color:white;
-            text-align:center;
-        }
-
-        .btn-primary{
-            margin:5px;
-        }
-    </style>
+  <style>
+    /* Estilos personalizados para acoplar el menú de Bootstrap con Velvet Sound */
+    .navbar-custom {
+      background-color: var(--color-barra, #000000d6) !important;
+      padding: 10px 0;
+    }
+    .navbar-custom .navbar-brand, 
+    .navbar-custom .nav-link {
+      color: var(--color-de-lertras, #ffffff) !important;
+    }
+    .navbar-custom .dropdown-menu {
+      background-color: rgba(20, 20, 20, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+    }
+    .navbar-custom .dropdown-item {
+      color: #ffffff !important;
+      padding: 8px 20px;
+    }
+    .navbar-custom .dropdown-item:hover {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- MENU -->
-
-<nav class="navbar navbar-inverse" style="background-color:var(--color-barra); border:none;">
+  <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
+      <a class="navbar-brand" href="index1.html" style="font-family: 'Times New Roman', Times, serif">Home</a>
 
-        <div class="navbar-header">
+      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <button type="button"
-                    class="navbar-toggle collapsed"
-                    data-toggle="collapse"
-                    data-target="#menuPrincipal">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
 
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-
-            </button>
-
-            <a class="navbar-brand" href="index1.html">
-                Home
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Unidad 1
             </a>
-
-        </div>
-
-        <div class="collapse navbar-collapse" id="menuPrincipal">
-
-            <ul class="nav navbar-nav">
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Unidad 1 <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="personajes1.html">Personajes 1</a></li>
-                        <li><a href="meterdatos.html">Meter Datos</a></li>
-                        <li><a href="tablafinal.html">Tabla Final</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Unidad 2 <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="relaciones01.html">Relación 1</a></li>
-                        <li><a href="relaciones02.html">Relación 2</a></li>
-                        <li><a href="capturadatosrelaconados.html">Relaciones de Datos</a></li>
-                        <li><a href="xmen.html">Registrar Personajes</a></li>
-                        <li><a href="tarjetas.html">Galería Personajes</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Unidad 3 <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="peliculas.html">Películas</a></li>
-                        <li><a href="pokedex.html">Pokedex</a></li>
-                        <li><a href="index.html">VELVET SOUND • Music Catalog</a></li>
-                    </ul>
-                </li>
-
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+               <li><a class="dropdown-item" href="personajes1.html">Personajes 1</a></li>
+               <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
+               <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
             </ul>
+          </li>
 
-        </div>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Unidad 2
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+              <li><a class="dropdown-item" href="relaciones01.html">Relación 1</a></li>
+              <li><a class="dropdown-item" href="relaciones02.html">Relación 2</a></li>
+              <li><a class="dropdown-item" href="capturadatosrelaconados.html">Relaciones de datos</a></li>
+              <li><a class="dropdown-item" href="xmen.html">Registrar Personajes</a></li>
+              <li><a class="dropdown-item" href="tarjetas.html">Galeria Personajes</a></li>
+            </ul>
+          </li>
 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Unidad 3
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+              <li><a class="dropdown-item" href="peliculas.html">Películas</a></li>
+              <li><a class="dropdown-item" href="pokedex.html">Pokedex</a></li>
+              <li><a class="dropdown-item" href="index.html">VELVET SOUND • Book Catalog</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<!-- CONTENIDO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="logo">
+        ✨ VELVET LIBRARIES
+      </div>
 
-<div class="jumbotron">
+      <span class="tag">
+        CATÁLOGO LITERARIO INTERACTIVO
+      </span>
 
-    <h1 class="display-4">Base de Datos</h1>
+      <h1>
+        Explore <br>
+        Books <br>
+        Universe 📚
+      </h1>
 
-    <p class="lead">
-        Bienvenido a la página principal de la base de datos.
-    </p>
+      <p>
+        Busca cualquier obra o autor y descubre 
+        portadas reales, años de publicación, editoriales
+        y datos interesantes en tiempo real.
+      </p>
 
-    <hr class="my-4">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Ejemplo: Harry Potter">
+        <button id="searchBtn">Buscar</button>
+      </div>
+    </div>
 
-    <p>
-       olaolaolaololoaloalaolaoalaoaloalaoal
-    </p>
+    <div class="hero-right">
+      <div class="floating-card card1">
+        📖 Trending Books
+      </div>
+      <div class="floating-card card2">
+        ✨ Live Search
+      </div>
+      <div class="floating-card card3">
+        🌎 Open Library API
+      </div>
+    </div>
+  </section>
 
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="peliculas.html">
-            Entrar
-        </a>
+  <section class="results-section">
+    <div class="section-title">
+      Resultados de Búsqueda 🔥
+    </div>
+    <div class="artists-grid" id="artistsGrid"></div>
+  </section>
 
-        <a class="btn btn-primary btn-lg" href="index1.html">
-            Click 🌸
-        </a>
-    </p>
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeBtn">&times;</span>
+      <div class="modal-image">
+        <img id="modalImage">
+      </div>
+      <div class="modal-info">
+        <span class="artist-tag" id="modalGenre"></span>
+        <h2 id="modalName"></h2>
+        <p id="modalBio"></p>
+        <div class="stats">
+          <div class="stat-box">
+            <span>📅 Año de publicación</span>
+            <h3 id="modalCountry"></h3>
+          </div>
+          <div class="stat-box">
+            <span>📄 Páginas aprox.</span>
+            <h3 id="modalStyle"></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</div>
+<script>
+const searchBtn = document.getElementById("searchBtn");
+const searchInput = document.getElementById("searchInput");
+const artistsGrid = document.getElementById("artistsGrid");
 
+const modal = document.getElementById("modal");
+const closeBtn = document.getElementById("closeBtn");
+
+searchBtn.addEventListener("click", buscarLibro);
+
+searchInput.addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        buscarLibro();
+    }
+});
+
+async function buscarLibro(){
+    const libroQuery = searchInput.value.trim();
+
+    if(libroQuery === ""){
+        alert("Escribe el nombre de un libro o autor");
+        return;
+    }
+
+    artistsGrid.innerHTML = "<h3>Buscando libros en los archivos...</h3>";
+
+    try {
+        // Consultamos la API de Open Library por título
+        const respuesta = await fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(libroQuery)}&limit=12`);
+        const datos = await respuesta.json();
+
+        artistsGrid.innerHTML = "";
+
+        if(!datos.docs || datos.docs.length === 0){
+            artistsGrid.innerHTML = `
+            <div class="text-center w-100">
+                <h3>No se encontraron libros con ese nombre</h3>
+            </div>`;
+            return;
+        }
+
+        datos.docs.forEach(b => {
+            // Conseguimos la portada real. Si el libro no tiene ID de portada, usamos una imagen por defecto muy bonita.
+            const imagen = b.cover_i 
+                ? `https://covers.openlibrary.org/b/id/${b.cover_i}-L.jpg`
+                : "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400&q=80";
+
+            const titulo = b.title || "Título Desconocido";
+            const autor = b.author_name ? b.author_name.join(", ") : "Autor Desconocido";
+            const anio = b.first_publish_year || "N/A";
+            const paginas = b.number_of_pages_median || "Desconocido";
+            const editor = b.publisher ? b.publisher[0] : "No especificado";
+
+            // Creamos un texto alternativo a modo de pequeña descripción/sinopsis rápida
+            const resumen = `Este libro titulado "${titulo}" fue escrito por ${autor}. Cuenta con múltiples registros internacionales y ha sido editado por empresas como ${editor}.`;
+
+            artistsGrid.innerHTML += `
+            <div class="artist-card" style="
+                background: rgba(255,255,255,.08);
+                border-radius: 20px;
+                overflow: hidden;
+                backdrop-filter: blur(10px);
+                margin: 15px;
+                width: 320px;
+                display: inline-block;
+                vertical-align: top;
+                border: 1px solid rgba(255,255,255,0.1);
+            ">
+                <img src="${imagen}"
+                     style="width: 100%; height: 350px; object-fit: cover;">
+
+                <div style="padding: 20px">
+                    <h3 style="color: #fff; font-size: 1.3rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${titulo}</h3>
+                    <p style="color: #b3b3b3; font-size: 0.9rem; margin-bottom: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        <i class="fa-solid fa-pen-nib" style="margin-right: 5px;"></i> ${autor}
+                    </p>
+
+                    <button
+                        class="btn btn-primary w-100" style="border-radius: 10px; font-weight: 600;"
+                        onclick="abrirModal(
+                        '${titulo.replace(/'/g, "\\'")}',
+                        '${imagen}',
+                        'Autor: ${autor.replace(/'/g, "\\'")}',
+                        '${anio}',
+                        '${paginas}',
+                        '${resumen.replace(/'/g, "\\'")}'
+                        )">
+                        Detalles del Libro
+                    </button>
+                </div>
+            </div>`;
+        });
+
+    } catch(error) {
+        console.error(error);
+        artistsGrid.innerHTML = `
+        <div class="text-center w-100">
+            <h3>Error al conectar con la biblioteca digital</h3>
+        </div>`;
+    }
+}
+
+function abrirModal(titulo, imagen, autor, anio, paginas, resumen){
+    document.getElementById("modalName").innerText = titulo;
+    document.getElementById("modalImage").src = imagen;
+    document.getElementById("modalGenre").innerText = autor;
+    document.getElementById("modalCountry").innerText = anio;
+    document.getElementById("modalStyle").innerText = paginas;
+    document.getElementById("modalBio").innerText = resumen;
+
+    modal.style.display = "flex";
+}
+
+closeBtn.addEventListener("click", function(){
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", function(e){
+    if(e.target === modal){
+        modal.style.display = "none";
+    }
+});
+</script>
 </body>
 </html>
