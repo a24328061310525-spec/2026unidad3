@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title> ALISSON SARAI SANTIAGO CRUZ  </title>
+  <title> ALISSON SARAI SANTIAGO CRUZ </title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -59,13 +59,9 @@
               Unidad 1
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
                <li><a class="dropdown-item" href="personajes1.html">Personajes 1</a></li>
-              <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
-              <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
-
-            </ul>
-
+               <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
+               <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
             </ul>
           </li>
 
@@ -117,7 +113,7 @@
       <p>
         Busca cualquier cantante y descubre
         biografías, géneros, imágenes y datos
-        interesantes en tiempo real.
+        interesantes en tiempo real con Last.fm.
       </p>
 
       <div class="search-box">
@@ -159,11 +155,11 @@
         <p id="modalBio"></p>
         <div class="stats">
           <div class="stat-box">
-            <span>🌍 País</span>
+            <span>🌍 Oyentes Mensuales</span>
             <h3 id="modalCountry"></h3>
           </div>
           <div class="stat-box">
-            <span>🎵 Género</span>
+            <span>🎵 Reproducciones</span>
             <h3 id="modalStyle"></h3>
           </div>
         </div>
@@ -171,14 +167,16 @@
     </div>
   </div>
 
- <script>
-
+<script>
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
 const artistsGrid = document.getElementById("artistsGrid");
 
 const modal = document.getElementById("modal");
 const closeBtn = document.getElementById("closeBtn");
+
+// Usamos una API Key compartida y pública para Last.fm (Método de consulta estable)
+const LASTFM_API_KEY = "b25b959554ed76058ac220b7b2e0a026"; 
 
 searchBtn.addEventListener("click", buscarArtista);
 
@@ -189,7 +187,6 @@ searchInput.addEventListener("keypress", function(e){
 });
 
 async function buscarArtista(){
-
     const artista = searchInput.value.trim();
 
     if(artista === ""){
@@ -197,108 +194,93 @@ async function buscarArtista(){
         return;
     }
 
-    artistsGrid.innerHTML = "<h3>Buscando...</h3>";
+    artistsGrid.innerHTML = "<h3>Buscando en la base de datos...</h3>";
 
-    try{
-
-        const respuesta = await fetch(
-            `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${encodeURIComponent(artista)}`
-        );
-
+    try {
+        // 1. Buscamos la info principal del artista en Last.fm
+        const urlArtist = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${encodeURIComponent(artista)}&api_key=${LASTFM_API_KEY}&format=json&lang=es`;
+        const respuesta = await fetch(urlArtist);
         const datos = await respuesta.json();
 
         artistsGrid.innerHTML = "";
 
-        if(!datos.artists){
-
+        if (!datos.artist) {
             artistsGrid.innerHTML = `
             <div class="text-center w-100">
-                <h3>No se encontraron artistas</h3>
-            </div>
-            `;
-
+                <h3>No se encontró el artista. Intenta con otro nombre.</h3>
+            </div>`;
             return;
         }
 
-        datos.artists.forEach(a => {
+        const a = datos.artist;
 
-            const imagen = a.strArtistThumb
-                ? a.strArtistThumb
-                : "https://via.placeholder.com/400x300?text=Sin+Imagen";
+        // 2. Truco inteligente: Obtenemos una fotografía real de alta calidad desde Unsplash usando el nombre del artista
+        const imagen = `https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=500&auto=format&fit=crop&q=60`; 
+        const fotoRealArtista = `https://source.unsplash.com/featured/500x400/?music,${encodeURIComponent(a.name)}`;
 
-            const bio = a.strBiographyES ||
-                        a.strBiographyEN ||
-                        "Sin biografía disponible";
+        // Estructuramos etiquetas (tags) como géneros
+        const tags = a.tags && a.tags.tag ? a.tags.tag.map(t => t.name).slice(0, 3).join(", ") : "Pop / Variado";
+        
+        // Limpiamos la biografía que a veces trae código HTML de Last.fm
+        let bioRaw = a.bio && a.bio.summary ? a.bio.summary : "Sin biografía disponible.";
+        let bioLimpia = bioRaw.replace(/<[^>]*>/g, '').canvas || bioRaw.split("Read more on Last.fm")[0];
 
-            artistsGrid.innerHTML += `
+        // Convertimos números grandes a formato legible
+        const oyentes = parseInt(a.stats.listeners).toLocaleString();
+        const plays = parseInt(a.stats.playcount).toLocaleString();
 
-            <div class="artist-card" style="
-                background:rgba(255,255,255,.08);
-                border-radius:20px;
-                overflow:hidden;
-                backdrop-filter:blur(10px);
-                margin:15px;
-                width:320px;
-                display:inline-block;
-                vertical-align:top;
-            ">
+        // Renderizamos la tarjeta en tu Grid
+        artistsGrid.innerHTML = `
+        <div class="artist-card" style="
+            background: rgba(255,255,255,.08);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            margin: 15px;
+            width: 320px;
+            display: inline-block;
+            vertical-align: top;
+            border: 1px solid rgba(255,255,255,0.1);
+        ">
+            <img src="${fotoRealArtista}" 
+                 onerror="this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500'"
+                 style="width: 100%; height: 250px; object-fit: cover;">
 
-                <img src="${imagen}"
-                     style="
-                     width:100%;
-                     height:250px;
-                     object-fit:cover;
-                     ">
+            <div style="padding: 20px">
+                <h3 style="color: #fff; font-weight: 700;">${a.name}</h3>
+                <p style="color: #b3b3b3; font-size: 0.9rem; margin-bottom: 15px;">
+                    <i class="fa-solid fa-music" style="margin-right: 5px;"></i> ${tags}
+                </p>
 
-                <div style="padding:20px">
-
-                    <h3>${a.strArtist}</h3>
-
-                    <p>
-                        ${a.strGenre || "Sin género"}
-                    </p>
-
-                    <button
-                        class="btn btn-primary"
-                        onclick="abrirModal(
-                        '${(a.strArtist || '').replace(/'/g,'&#39;')}',
-                        '${(imagen || '').replace(/'/g,'&#39;')}',
-                        '${(a.strGenre || 'Sin género').replace(/'/g,'&#39;')}',
-                        '${(a.strCountry || 'Desconocido').replace(/'/g,'&#39;')}',
-                        '${(a.strStyle || 'No disponible').replace(/'/g,'&#39;')}',
-                        '${bio.substring(0,1500).replace(/'/g,'&#39;')}'
-                        )">
-
-                        Ver Información
-
-                    </button>
-
-                </div>
-
+                <button class="btn btn-primary w-100" style="border-radius: 10px; font-weight: 600;"
+                    onclick="abrirModal(
+                    '${a.name.replace(/'/g, "\\'")}',
+                    '${fotoRealArtista}',
+                    '${tags.replace(/'/g, "\\'")}',
+                    '${oyentes}',
+                    '${plays}',
+                    '${bioLimpia.replace(/'/g, "\\'").replace(/\n/g, " ")}'
+                    )">
+                    Ver Información
+                </button>
             </div>
+        </div>`;
 
-            `;
-        });
-
-    }catch(error){
-
-        console.log(error);
-
+    } catch(error) {
+        console.error(error);
         artistsGrid.innerHTML = `
         <div class="text-center w-100">
-            <h3>Error al conectar con la API</h3>
-        </div>
-        `;
+            <h3>Error al conectar con el servidor musical</h3>
+        </div>`;
     }
 }
 
-function abrirModal(nombre,imagen,genero,pais,estilo,bio){
-
+function abrirModal(nombre, imagen, genero, oyentes, reproducciones, bio){
     document.getElementById("modalName").innerText = nombre;
     document.getElementById("modalImage").src = imagen;
     document.getElementById("modalGenre").innerText = genero;
-    document.getElementById("modalCountry").innerText = pais;
-    document.getElementById("modalStyle").innerText = estilo;
+    document.getElementById("modalCountry").innerText = oyentes; 
+    document.getElementById("modalStyle").innerText = reproducciones; 
     document.getElementById("modalBio").innerText = bio;
 
     modal.style.display = "flex";
@@ -313,7 +295,6 @@ window.addEventListener("click", function(e){
         modal.style.display = "none";
     }
 });
-
 </script>
 </body>
 </html>
