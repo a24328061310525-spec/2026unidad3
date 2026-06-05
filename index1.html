@@ -1,104 +1,170 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link href="https://fonts.cdnfonts.com/css/austin-3" rel="stylesheet">
+    <title>ALISSON SARAI SANTIAGO CRUZ</title>
+
+    <link href="https://fonts.cdnfonts.com/css/austin-3" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <title> ALISSON SARAI SANTIAGO CRUZ  </title>
 
-    <title>Alisson Santiago Cruz</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     <style>
-         :root{
-    --color-de-fondo: #4f4964;
-    --color-de-lertras: #fff7f7; 
-    --color-barra: #000000d6;     
-    --color-boton: #e4f7ff;     
-    --color-extra: #110606;    
-}
-
+        :root{
+            --color-de-fondo:#4f4964;
+            --color-de-lertras:#fff7f7;
+            --color-barra:#000000d6;
+            --color-boton:#e4f7ff;
+            --color-extra:#110606;
+        }
 
         body{
-            background-color: var(--color-de-fondo);
+            background-color:var(--color-de-fondo);
+            color:white;
         }
+
         h1{
-            font-family: 'Austin', sans-serif;
-            color: var(--color-de-lertras);
-            text-align: center;
+            font-family:'Austin', sans-serif;
+            color:var(--color-de-lertras);
+            text-align:center;
+        }
+
+        .navbar-nav > li > a,
+        .navbar-brand{
+            color:white !important;
+        }
+
+        .dropdown-menu{
+            background-color:#000;
+        }
+
+        .dropdown-menu li a{
+            color:white !important;
+        }
+
+        .dropdown-menu li a:hover{
+            background-color:#6a5acd !important;
+            color:white !important;
+        }
+
+        .jumbotron{
+            background-color:var(--color-de-fondo) !important;
+            color:white;
+            text-align:center;
+        }
+
+        .btn-primary{
+            margin:5px;
         }
     </style>
 </head>
 
 <body>
 
-<div>
-    <nav class="navbar navbar-light" style="background-color:var(--color-barra);">
-        <div class="container">
-            <a class="navbar-brand" href="index1.html" style="color:var(--color-de-lertras); font-family: 'Times New Roman', Times, serif">Home</a>
+<!-- MENU -->
 
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="nav navbar-nav">
+<nav class="navbar navbar-inverse" style="background-color:var(--color-barra); border:none;">
+    <div class="container">
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Unidad 1
-                        </a>
-                           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-               <li><a class="dropdown-item" href="personajes1.html">Personajes 1</a></li>
-              <li><a class="dropdown-item" href="meterdatos.html">Meter Datos</a></li>
-              <li><a class="dropdown-item" href="tablafinal.html">Tabla Final</a></li>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index1.html">Home</a>
+
+            <button type="button"
+                    class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#navbarNavDropdown">
+
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            <ul class="nav navbar-nav">
+
+                <!-- Unidad 1 -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Unidad 1 <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="personajes1.html">Personajes 1</a></li>
+                        <li><a href="meterdatos.html">Meter Datos</a></li>
+                        <li><a href="tablafinal.html">Tabla Final</a></li>
+                    </ul>
+                </li>
+
+                <!-- Unidad 2 -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Unidad 2 <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="relaciones01.html">Relación 1</a></li>
+                        <li><a href="relaciones02.html">Relación 2</a></li>
+                        <li><a href="capturadatosrelaconados.html">Relaciones de Datos</a></li>
+                        <li><a href="xmen.html">Registrar Personajes</a></li>
+                        <li><a href="tarjetas.html">Galería Personajes</a></li>
+                    </ul>
+                </li>
+
+                <!-- Unidad 3 -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Unidad 3 <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="peliculas.html">Películas</a></li>
+                        <li><a href="pokedex.html">Pokedex</a></li>
+                        <li><a href="index.html">VELVET SOUND • Music Catalog</a></li>
+                    </ul>
+                </li>
 
             </ul>
-                        </div>
-                    </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Unidad 2
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                            <a class="dropdown-item" href="relaciones01.html">Relación 1</a><br>
-                            <a class="dropdown-item" href="relaciones02.html">Relación 2</a><br>
-                            <a class="dropdown-item" href="capturadatosrelaconados.html">Relaciones de datos</a><br>
-                            <a class="dropdown-item" href="xmen.html">Registrar Personajes</a>
-                             <a class="dropdown-item" href="tarjetas.html">Galeria Personajes</a>
-                            
-                        </div>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Unidad 3
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
-                            <a class="dropdown-item" href="peliculas.html">Películas</a><br>
-                            <a class="dropdown-item" href="pokedex.html">Pokedex</a><br>
-                            <a class="dropdown-item" href="index.html">VELVET SOUND • Music Catalog</a><br>
-
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
         </div>
-    </nav>
-</div>
+    </div>
+</nav>
 
-<div class="jumbotron" style="background-color: var(--color-de-fondo)">
-    <h1 class="display-4">Base de Datos </h1>
-    <p class="lead">Bienvenido a la página principal de la base de datos.</p>
-    <hr class="my-4">
-    <p>olaolaolaolaoalaolaoalaolaloalaoalaolaolaaolaoal</p>
+<!-- CONTENIDO -->
+
+<div class="jumbotron">
+
+    <h1 class="display-4">Base de Datos</h1>
+
     <p class="lead">
-        <a class="btn btn-primary btn-lg" href="meterdatos.html" role="button">entrar</a>
-         <a class="btn btn-primary btn-lg" href="xmen.html" role="button">Registrar </a>
+        Bienvenido a la página principal de la base de datos.
     </p>
+
+    <hr class="my-4">
+
+    <p>
+        Administra registros, personajes y proyectos de tus unidades.
+    </p>
+
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="meterdatos.html">
+            Entrar
+        </a>
+
+        <a class="btn btn-primary btn-lg" href="xmen.html">
+            Registrar
+        </a>
+    </p>
+
 </div>
 
 </body>
 </html>
+```
